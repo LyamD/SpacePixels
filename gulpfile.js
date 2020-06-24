@@ -4,6 +4,15 @@ node;
 var concat = require('gulp-concat');
 const { src, dest, parallel, series, watch } = require('gulp');
 
+//Typescript compilateur
+var ts = require('gulp-typescript');
+var tsProjectServer = ts.createProject('tsconfigserver.json');
+var tsProjectClient = ts.createProject('tsconfigclient.json');
+
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var tsify = require('tsify');
+
 
 // Node
 
@@ -11,7 +20,7 @@ const { src, dest, parallel, series, watch } = require('gulp');
  * $ gulp server
  * description: launch the server. If there's a server already running, kill it.
  */
-async function server(params) {
+async function server() {
     if (node) node.kill()
         node = spawn('node', ['dist/server/main.js'], {stdio: 'inherit'})
     node.on('close', function (code) {
@@ -23,9 +32,21 @@ async function server(params) {
 
 //Server Side
 
-function buildServer(params) {
+function buildServer() {
     return src('src/server/main.js', {allowEmpty: true})
             .pipe(dest('dist/server/'));
+}
+
+function vendor() {
+    return src('src/client/vendor/**/*.js', { sourcemaps: true })
+            .pipe(concat('vendor.js'))
+            .pipe(dest('dist/client/js'), { sourcemaps: true });
+}
+
+function typescriptServer() {
+    return tsProjectServer.src()
+            .pipe(tsProjectServer())
+            .js.pipe(gulp.dest('dist/server'));
 }
 
 // Client Side
@@ -40,6 +61,22 @@ function jsClient() {
             .pipe(dest('dist/client/js/'));
 }
 
+function typescriptClient() {
+
+    return browserify({
+        basedir: '.',
+        debug: true,
+        entries: ['src/client/index.ts'],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .bundle()
+    .pipe(source('index.js'))
+    .pipe(gulp.dest('dist/client/js'))
+
+}
+
 exports.dev = function() {
     
     watch(
@@ -48,12 +85,13 @@ exports.dev = function() {
             queue : false,
             ignoreInitial: false
         },
-        series( series(buildServer, jsClient), series(html, server) )
+        series(series(vendor, series(typescriptServer, jsClient)), series(html, server) )
     );
 }
 
 exports.buildAll = parallel(parallel(html, jsClient), buildServer);
 exports.html = html;
+exports.ts = typescriptClient;
 
 process.on('exit', function() {
     if (node) node.kill()

@@ -1,0 +1,12 @@
+{
+    "files": [
+        "src/server/game.ts",
+        "src/server/engine.ts",
+        "src/server/main.ts"
+    ],
+
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}

@@ -1,10 +1,11 @@
-var app = require('express')();
-var express = require('express');
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+import * as express from 'express';
+import * as socketio from 'socket.io';
+const app = express();
 
+let http = require('http').createServer(app);
+let io = require('socket.io')(http);
 
-var path = require("path");
+import * as path from 'path';
 app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
 // var game = require('./js/spacepixels/main.js');
@@ -17,10 +18,10 @@ app.get('/', (req, res) => {
 
 //game(engine);
 
-io.on('connection', (socket) => {
+io.on('connection', (socket : any) => {
     console.log('player connected');
 
-    socket.on('chat message', (msg) => {
+    socket.on('chat message', (msg : string) => {
         console.log(msg);
         io.emit('chat message', msg);
       });
