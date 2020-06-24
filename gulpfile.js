@@ -6,8 +6,7 @@ const { src, dest, parallel, series, watch } = require('gulp');
 
 //Typescript compilateur
 var ts = require('gulp-typescript');
-var tsProjectServer = ts.createProject('tsconfigserver.json');
-var tsProjectClient = ts.createProject('tsconfigclient.json');
+var tsProject = ts.createProject('tsconfig.json');
 
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
@@ -32,20 +31,9 @@ async function server() {
 
 //Server Side
 
-function buildServer() {
-    return src('src/server/main.js', {allowEmpty: true})
-            .pipe(dest('dist/server/'));
-}
-
-function vendor() {
-    return src('src/client/vendor/**/*.js', { sourcemaps: true })
-            .pipe(concat('vendor.js'))
-            .pipe(dest('dist/client/js'), { sourcemaps: true });
-}
-
 function typescriptServer() {
-    return tsProjectServer.src()
-            .pipe(tsProjectServer())
+    return tsProject.src()
+            .pipe(tsProject())
             .js.pipe(gulp.dest('dist/server'));
 }
 
@@ -56,13 +44,9 @@ function html() {
             .pipe(dest('dist/client/'));
 }
 
-function jsClient() {
-    return src('src/client/index.js', {allowEmpty: true})
-            .pipe(dest('dist/client/js/'));
-}
-
 function typescriptClient() {
 
+    //Browserify tout les dépendance client
     return browserify({
         basedir: '.',
         debug: true,
@@ -80,18 +64,17 @@ function typescriptClient() {
 exports.dev = function() {
     
     watch(
-        ['src/**/*.js', 'src/client/**/*.html'], 
+        ['src/**/*.ts', 'src/client/**/*.html'], 
         {
             queue : false,
             ignoreInitial: false
         },
-        series(series(vendor, series(typescriptServer, jsClient)), series(html, server) )
+        series(series(typescriptServer, typescriptClient), series(html, server) )
     );
 }
 
-exports.buildAll = parallel(parallel(html, jsClient), buildServer);
+exports.build = parallel(parallel(typescriptClient, typescriptServer), html);
 exports.html = html;
-exports.ts = typescriptClient;
 
 process.on('exit', function() {
     if (node) node.kill()

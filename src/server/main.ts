@@ -22,7 +22,6 @@ io.on('connection', (socket : any) => {
     console.log('player connected');
 
     socket.on('chat message', (msg : string) => {
-        console.log(msg);
         io.emit('chat message', msg);
       });
 
