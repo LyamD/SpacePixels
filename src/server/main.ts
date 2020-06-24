@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as socketio from 'socket.io';
+import * as matterjs from 'matter-js';
 const app = express();
 
 let http = require('http').createServer(app);
