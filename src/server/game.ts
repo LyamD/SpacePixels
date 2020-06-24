@@ -1,3 +1,8 @@
-import { sayHello} from './engine';
+const { Engine } = require("matter-js");
 
-console.log(sayHello('Mabite'));
+export function main(engine : any) {
+
+    setInterval(function() {
+        Engine.update(engine, 1000/60);
+    }, 1000/60);
+};

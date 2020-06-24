@@ -11,16 +11,25 @@ app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
 // var game = require('./js/spacepixels/main.js');
 // const { Engine } = require("matter-js");
-// var engine = Engine.create();
+var engine = matterjs.Engine.create();
+import * as game from './game';
+
+game.main(engine);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
-//game(engine);
-
 io.on('connection', (socket : any) => {
     console.log('player connected');
+
+    socket.on('keyDown', (msg : string) => {
+      io.emit('chat message', msg + 'pressed');
+    });
+
+    socket.on('keyUp', (msg : string) => {
+      io.emit('chat message', msg + 'unpressed');
+    });
 
     socket.on('chat message', (msg : string) => {
         io.emit('chat message', msg);
@@ -29,6 +38,8 @@ io.on('connection', (socket : any) => {
     socket.on('disconnect', () => {
         console.log('user disconnectedd');
     });
+
+
 });
 
 http.listen(3000, () => {

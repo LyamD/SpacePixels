@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import * as io from 'socket.io-client';
+import * as game from './game';
 
 let app = new PIXI.Application();
 
@@ -9,10 +10,11 @@ $(function () {
 
     var socket = io();
 
+    game.run(socket);
+
     $('form').submit(function(e) {
       e.preventDefault(); // prevents page reloading
       socket.emit('chat message', $('#m').val());
-      console.log($('#m').val());
       $('#m').val('');
       return false;
     });
