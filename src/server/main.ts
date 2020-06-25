@@ -18,21 +18,35 @@ app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
 //Création MatterJS engine
 var engine = matterjs.Engine.create();
-game.main(engine);
 
+//Liste des joueurs
+var PLAYERS : Player[] = [];
+game.main(engine, PLAYERS);
+
+//Envoie page client
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
-//Liste des joueurs
-var PLAYERS : Player[] = [];
-
 io.on('connection', (socket : any) => {
+
+  // Objet data envoyée
+    let data = {
+      PLAYERS : {}
+    };
     //Connection d'un joueur: On affiche son id
     console.log('player connected : ' + socket.id);
     //On créer son objet Player en pos 0,0
     let player = new Player(new Position(0,0));
-    PLAYERS.push(player);
+    PLAYERS[socket.id] = (player);
+
+    //On transforme l'array en Objet car socketIO ne transmet pas d'array
+    Object.assign(data.PLAYERS, PLAYERS);
+
+    //On envoie une liste de tout les joueurs présent
+    socket.emit('currentPlayers', data);
+
+    socket.broadcast.emit('newPlayer', PLAYERS[socket.id]);
 
     socket.on('keyDown', (msg : string) => {
       io.emit('chat message', msg + 'pressed');
@@ -46,8 +60,12 @@ io.on('connection', (socket : any) => {
         io.emit('chat message', msg);
       });
 
+
     socket.on('disconnect', () => {
+
         console.log('user disconnected : ' + socket.id);
+        delete PLAYERS[socket.id];
+        io.emit('disconnect', socket.id);
     });
 
 
