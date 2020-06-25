@@ -1,8 +1,6 @@
 {
-    "files": [
-        "src/server/game.ts",
-        "src/server/engine.ts",
-        "src/server/main.ts"
+    "include": [
+        "src/server/**/*"
     ],
 
     "compilerOptions": {
