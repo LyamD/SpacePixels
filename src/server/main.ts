@@ -4,10 +4,8 @@ import * as socketio from 'socket.io';
 import * as path from 'path';
 
 // Game Import
-import * as matterjs from 'matter-js';
-import * as game from './game';
-import { Player } from './engine/player';
-import { Position } from './engine/position';
+
+import * as game from './engine/gamemanager';
 
 //Création serveur express/node
 const app = express();
@@ -16,12 +14,10 @@ let io = require('socket.io')(http);
 //Changement path coté client
 app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
-//Création MatterJS engine
-var engine = matterjs.Engine.create();
 
-//Liste des joueurs
-var PLAYERS : Player[] = [];
-game.main(engine, PLAYERS);
+
+var GameManager = new game.GameManager();
+GameManager.launch();
 
 //Envoie page client
 app.get('/', (req, res) => {
@@ -32,21 +28,24 @@ io.on('connection', (socket : any) => {
 
   // Objet data envoyée
     let data = {
-      PLAYERS : {}
+      ENTITIES : {}
     };
+
+    let aray = [GameManager.SPWORLD.addEntity(),GameManager.SPWORLD.addEntity(),GameManager.SPWORLD.addEntity()]
+    aray.push(GameManager.SPWORLD.addEntity());
+    aray[5] = GameManager.SPWORLD.addEntity();
     //Connection d'un joueur: On affiche son id
     console.log('player connected : ' + socket.id);
-    //On créer son objet Player en pos 0,0
-    let player = new Player(new Position(0,0));
-    PLAYERS[socket.id] = (player);
-
+    //On créer une entité et on lui assigne le C_Player
+    console.log(aray);
+    socket.emit('debug',aray );
     //On transforme l'array en Objet car socketIO ne transmet pas d'array
-    Object.assign(data.PLAYERS, PLAYERS);
+    //Object.assign(data.ENTITIES, S_Socket.run());
 
     //On envoie une liste de tout les joueurs présent
-    socket.emit('currentPlayers', data);
+    //socket.emit('currentPlayers', sendedEntities);
 
-    socket.broadcast.emit('newPlayer', PLAYERS[socket.id]);
+    //socket.broadcast.emit('newPlayer', PLAYERS[socket.id]);
 
     socket.on('keyDown', (msg : string) => {
       io.emit('chat message', msg + 'pressed');
@@ -64,7 +63,7 @@ io.on('connection', (socket : any) => {
     socket.on('disconnect', () => {
 
         console.log('user disconnected : ' + socket.id);
-        delete PLAYERS[socket.id];
+        //delete PLAYERS[socket.id];
         io.emit('disconnect', socket.id);
     });
 

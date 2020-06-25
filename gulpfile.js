@@ -44,6 +44,11 @@ function html() {
             .pipe(dest('dist/client/'));
 }
 
+function exportComponents() {
+    return src('src/server/engine/components/**/*.ts', {allowEmpty: true})
+            .pipe(dest('src/client/engine/components/'))
+}
+
 function typescriptClient() {
 
     //Browserify tout les dépendance client
@@ -69,12 +74,13 @@ exports.dev = function() {
             queue : false,
             ignoreInitial: false
         },
-        series(series(typescriptServer, typescriptClient), series(html, server) )
+        series(exportComponents ,series(series(typescriptServer, typescriptClient), series(html, server) ))
     );
 }
 
 exports.build = parallel(parallel(typescriptClient, typescriptServer), html);
 exports.html = html;
+exports.exportComponents = exportComponents;
 
 process.on('exit', function() {
     if (node) node.kill()

@@ -1,17 +1,32 @@
 import * as PIXI from "pixi.js";
+import {Entity} from "./engine/components/entity";
 var pixiapp = new PIXI.Application();
 
 export function run(socket: any) {
-    playerInputs(socket);
-    renderWorld();
-    playerGestion(socket);
+
+    socket.on('debug', (data : Array<Entity>) => {
+        data.forEach((entity) => {
+            if (entity != null) {
+                let ent: Entity = {
+                    id: entity.id,
+                    components: entity.components
+                }
+                console.log(ent);
+            }
+        })
+        //console.log('debug' + data);
+    })
+
+    // playerInputs(socket);
+    // renderWorld();
+    // playerGestion(socket);
 }
 
 var PLAYERS : any[] = [];
 
 function playerGestion(socket: any) {
     socket.on('currentPlayers', (data) => {
-        //console.log(data);
+        console.log(data);
 
         let playerz = [];
         Object.keys(data).map( (key) => {
@@ -60,7 +75,7 @@ function renderWorld() {
 }
 
 function renderPlayer(players : Array<any>) {
-    console.log(players);
+    //console.log(players);
     for (let i in players){
         console.log('playerGestion loop : ' + i);
         let rect = new PIXI.Graphics();
