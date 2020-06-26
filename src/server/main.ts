@@ -4,7 +4,6 @@ import * as socketio from 'socket.io';
 import * as path from 'path';
 
 // Game Import
-
 import * as game from './engine/gamemanager';
 
 //Création serveur express/node
@@ -14,6 +13,7 @@ let io = require('socket.io')(http);
 //Changement path coté client
 app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
+//On créer un gameManager et on lance le jeu
 var GameManager = new game.GameManager();
 GameManager.launch();
 
@@ -26,6 +26,7 @@ io.on('connection', (socket : any) => {
 
   // Objet data envoyée
     let data = new Array<any>();
+    //On y ajoute toute les entitées
     GameManager.SPWORLD.ENTITIES.forEach(ent => {
       data.push(ent);
     })
