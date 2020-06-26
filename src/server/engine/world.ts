@@ -37,7 +37,7 @@ export class SPWorld {
         //On ajoute le component à l'array de l'entité et à celui du compManager
         ent.components.push(comp);
         compManager.COMPONENTS.push(comp);
-        console.log('AddToEntity : ' + comp.x);
+        console.log('AddToEntity : ' + comp.constructor.name);
 
     }
 

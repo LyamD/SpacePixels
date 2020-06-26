@@ -5,6 +5,12 @@ import { SPWorld } from "../world";
 
 
 export abstract class System {
+
+     compRequired : Array<string>;
+
+     constructor(components : Array<string>) {
+          this.compRequired = components;
+     }
      
      runEntities(entities : Array<Entity>, components : Array<Component>) {
           //Pour toute les entités
@@ -13,10 +19,14 @@ export abstract class System {
                var comps = new Array<Component>();
                //Pour tout les composant requis
                components.forEach(comp => {
-                    //On ajoute la réf a notre array local
-                    comps[comp.constructor.name] = SPWorld.getComponentFromEntity(entity, comp);
+                    //Si le component est présent dans les requis il est l'ajouter à comps
+                    if (this.compRequired.includes(comp.constructor.name)) {
+                         //On ajoute la réf a notre array local
+                         comps[comp.constructor.name] = SPWorld.getComponentFromEntity(entity, comp);
+                    }
                });
 
+               //Si aucun composant n'est nul
                if (comps.every(this.verifyComps)) {
                     this.run(comps);
                }
@@ -26,6 +36,7 @@ export abstract class System {
      private verifyComps(value : Component) : boolean {
           return (value != null);
      }
+
      
      abstract run(components: Array<Component>) : void
 

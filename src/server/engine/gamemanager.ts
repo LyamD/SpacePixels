@@ -2,10 +2,10 @@
 import * as matterjs from 'matter-js';
 const { Engine } = require("matter-js");
 //SP imports
-import { System, SystemsIndexForOrder, SystemManager} from "./systems/system";
+import { SystemManager} from "./systems/systemmanager";
 import { SPWorld } from "./world";
-import { ComponentManager, C_Transform, C_Position } from './components/component';
-import { TestSystem } from './systems/testSystem';
+import { ComponentManager, C_Transform } from './components/component';
+import { TestSystem } from './systems/systems';
 
 
 export class GameManager {
@@ -52,12 +52,13 @@ export class GameManager {
     }
 
     private setup() {
+
         let testEnt = this.SPWORLD.addEntity();
         let testComp = new C_Transform(15,12);
-        console.log('Création : ' + testComp.x);
         this.SystemManager.addSystem(
-            new TestSystem()
+            new TestSystem(['C_Transform'])
         );
+
 
         this.SPWORLD.addComponentToEntity(testEnt, testComp, this.ComponentManager);
     }
