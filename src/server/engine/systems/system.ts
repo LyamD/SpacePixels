@@ -7,23 +7,26 @@ export interface System {
 export class SystemManager {
      SYSTEMS : Array<System>;
      CompManager: ComponentManager;
+     systemsIndex : SystemsIndexForOrder;
      //[key: string]: any;
 
      constructor(CompManager: ComponentManager) {
           this.SYSTEMS = Array<System>();
           this.CompManager = CompManager;
+          this.systemsIndex = new SystemsIndexForOrder();
      }
 
      addSystem(sys: System) {
           this.SYSTEMS.push(sys);
-          //let i = this.SYSTEMS.indexOf(sys);
-          //this['system' + i] = new Array<number>();
+          let i = this.SYSTEMS.indexOf(sys);
+          this.systemsIndex[sys.constructor.name] = i;
      }
 
      runSystems(order: Array<number>) {
           order.forEach(systemIndex => {
               let sys = this.SYSTEMS[systemIndex];
               sys.run(this.CompManager.COMPONENTS)
+              
               //this.SYSTEMS[systemIndex].run();
           });
   
@@ -47,9 +50,6 @@ export class S_TestSystem implements System {
 
 //Associe le nom du système à son index dans la liste SYSTEMS. Permet de changer l'ordre
 // A Modifier lors du changement d'implémentations de systeme
-export enum SystemsIndexForOrder{
-     systemA = 1,
-     systemB = 2,
-     systemC = 3,
-     systemD = 4
+export class SystemsIndexForOrder{
+     [key: string]: any
 }

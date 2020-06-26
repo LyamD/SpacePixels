@@ -7,4 +7,7 @@ export interface Entity {
     components? : Array<Component>;
 }
 
+export function createEntity() {
+    
+}
 

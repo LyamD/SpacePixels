@@ -4,17 +4,19 @@ var pixiapp = new PIXI.Application();
 
 export function run(socket: any) {
 
-    socket.on('debug', (data : Array<Entity>) => {
-        data.forEach((entity) => {
+    var data = new Array<Entity>();
+
+    socket.on('debug', (dataR : Array<any>) => {
+        dataR.forEach((entity) => {
             if (entity != null) {
                 let ent: Entity = {
                     id: entity.id,
                     components: entity.components
                 }
+                data.push(ent);
                 console.log(ent);
             }
         })
-        //console.log('debug' + data);
     })
 
     // playerInputs(socket);

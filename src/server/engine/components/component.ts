@@ -23,24 +23,25 @@ export class ComponentManager {
 }
 
 export class C_Player implements Component {
-    type :string;
     socket;
 }
 
 export class C_Position implements Component {
-    type :string;
     x: number;
     y: number;
+
+    constructor(x: number = 0, y: number = 0) {
+        this.x = x;
+        this.y = y;
+    }
 }
 
 export class C_Transform implements Component, C_Position {
-    type: string;
     x: number;
     y: number;
     rotation: number;
 
     constructor(x: number = 0, y: number = 0, rot: number = 0) {
-        this.type = 'Transform'
         this.x = x;
         this.y = y;
         this.rotation = rot;

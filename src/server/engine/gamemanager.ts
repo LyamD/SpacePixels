@@ -43,7 +43,7 @@ export class GameManager {
             //Loop de MatterJS
             Engine.update(matterEngine, 1000/60);
 
-            SystemManager.runSystems([0]);
+            SystemManager.runSystems([SystemManager.systemsIndex.S_TestSystem]);
 
             // this.runSystems([
             //     SystemsIndexForOrder.systemA,
