@@ -37,7 +37,7 @@ export class SPWorld {
         //On ajoute le component à l'array de l'entité et à celui du compManager
         ent.components.push(comp);
         compManager.COMPONENTS.push(comp);
-        console.log('AddToEntity : ' + comp.constructor.name);
+        console.log('AddToEntity : ' + ent.id + ' ,component : ' + comp.constructor.name);
 
     }
 
@@ -50,10 +50,11 @@ export class SPWorld {
     static getComponentFromEntity(ent: Entity, comp: Component) : Component {
         let component = null;
         ent.components.forEach(c => {
-            if (typeof c === typeof comp) {
+            if (c.constructor.name == comp.constructor.name) {
                 component = c;
             }
         });
+        console.log('getCompFromEntity returned : ' + component.constructor.name + ' from ent : ' + ent.id);
         return component;
     }
 }

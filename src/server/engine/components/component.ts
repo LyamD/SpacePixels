@@ -47,3 +47,19 @@ export class C_Transform implements Component, C_Position {
         this.rotation = rot;
     }
 }
+
+export class C_Renderer implements Component {
+    style: string;
+
+    constructor(style : string) {
+        this.style = style;
+    }
+}
+
+export class C_Engine implements Component {
+    speed: number;
+
+    constructor(p_speed : number) {
+        this.speed = p_speed;
+    }
+}

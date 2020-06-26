@@ -15,22 +15,52 @@ export abstract class System {
      runEntities(entities : Array<Entity>, components : Array<Component>) {
           //Pour toute les entités
           entities.forEach(entity => {
+               //console.log(' --------- System : ' + this.constructor.name + ' , Entity : ' + entity.id);
+               this.compRequired.forEach(r => {
+                    //console.log('-- required : ' + r);
+               })
                //On créer un array on l'on tente de récuperer tout les component requis
-               var comps = new Array<Component>();
-               //Pour tout les composant requis
-               components.forEach(comp => {
-                    //Si le component est présent dans les requis il est l'ajouter à comps
-                    if (this.compRequired.includes(comp.constructor.name)) {
-                         //On ajoute la réf a notre array local
-                         comps[comp.constructor.name] = SPWorld.getComponentFromEntity(entity, comp);
-                    }
-               });
+               var entityComponents = new Array<Component>();
+               //Pour tout les composant (S'ils existent)
+               if (entity.components != null) {   
+                    entity.components.forEach(comp => {
+                         //Si le component est présent dans les requis il est l'ajouter à comps
+                         if (this.compRequired.includes(comp.constructor.name)) {
+                              //console.log(' - entity : ' + entity.id + ' - component required : ' + comp.constructor.name);
+                              //On ajoute la réf a notre array local
+                              if (SPWorld.getComponentFromEntity(entity, comp) != null) {
+                                   let c = SPWorld.getComponentFromEntity(entity, comp);
+                                   entityComponents.push(c);
+                                   //console.log("voila : " + c.constructor.name);
+                              } else {
+                                   //console.log('missing comp');
+                              }
+                              //console.log('oooof : ' + entityComponents['C_Transform'].x);
+                         } else {
+                              //console.log(' - entity : ' + entity.id + ' - component refused : ' + comp.constructor.name);
+                         }
+                    });
+               }
+
 
                //Si aucun composant n'est nul
-               if (comps.every(this.verifyComps)) {
-                    this.run(comps);
+               if (entityComponents.length == this.compRequired.length && entityComponents.every(this.verifyComps)) {
+                    //console.log('lancement run()');
+                    this.run(entityComponents);
+               } else {
+                    //console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
                }
           });
+     }
+
+     mapEntities(entityComponents: Array<Component>) : Array<Component> {
+          let arr = new Array<Component>();
+          Object.keys(entityComponents).map((index) => {
+               let c = entityComponents[index];
+               arr[c.constructor.name] = c;
+          })
+
+          return arr;
      }
      
      private verifyComps(value : Component) : boolean {
@@ -38,7 +68,7 @@ export abstract class System {
      }
 
      
-     abstract run(components: Array<Component>) : void
+     abstract run(entityComponents: Array<Component>) : void
 
 }
 

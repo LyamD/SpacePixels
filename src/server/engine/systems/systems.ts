@@ -1,5 +1,5 @@
 import { System } from "./systemmanager";
-import { Component, C_Transform } from "../components/component";
+import { Component, C_Transform, C_Renderer, C_Engine } from "../components/component";
 
 export class TestSystem extends System {
 
@@ -16,9 +16,31 @@ export class TestSystem extends System {
 
 }
 
-// export class Render extends System {
+export class S_Render extends System {
 
-//     run(entities : Array<Component>) {
+    constructor(components : Array<string>) {
+        super(components);
+    }
 
-//     }
-// }
+    run(entityComponents : Array<Component>) {
+        let Components = this.mapEntities(entityComponents);
+        let transform : C_Transform = Components['C_Transform'];
+        let renderer : C_Renderer = Components['C_Renderer'];
+        console.log('entity rendered at :' + transform.x + ' ; ' + transform.y + ' with value : ' + renderer.style);
+    }
+}
+
+export class S_Propulsion extends System {
+
+    constructor(components: Array<string>) {
+        super(components);
+    }
+
+    run(entityComponents : Array<Component>) {
+        let Components = this.mapEntities(entityComponents);
+        let transform : C_Transform = Components['C_Transform'];
+        console.log('-- ben ? : ' + Components['C_Engine']);
+        let propulsion : C_Engine = Components['C_Engine'];
+        transform.x = transform.x + propulsion.speed;
+    }
+}
