@@ -16,6 +16,8 @@ app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
 
 
+
+
 var GameManager = new game.GameManager();
 GameManager.launch();
 
