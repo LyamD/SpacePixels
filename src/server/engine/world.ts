@@ -51,7 +51,7 @@ export class SPWorld {
     static getComponentFromEntity(ent: Entity, comp: Component) : Component {
         let component = null;
         ent.components.forEach(c => {
-            if (c.constructor.name == comp.constructor.name) {
+            if (c.name == comp.name) {
                 component = c;
             }
         });

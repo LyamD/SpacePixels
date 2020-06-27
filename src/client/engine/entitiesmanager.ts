@@ -1,11 +1,14 @@
 import { Entity } from "./components/entity";
+import { Component, ComponentManager } from "./components/component";
 
 export class EntitiesManager {
 
     entities : Array<Entity>;
+    components : Array<Component>;
 
-    constructor(entities : Array<Entity>) {
+    constructor(entities : Array<Entity>, components : Array<Component>) {
         this.entities = entities;
+        this.components = components;
     }
 
 
@@ -40,9 +43,22 @@ export class EntitiesManager {
     private anyToEntity(ent : any) : Entity {
         var entity : Entity = {
             id : ent.id,
-            components: ent.components
+            components: Array<Component>()
         }
+
+        Object.values(ent.components).forEach((comp : Component) => {
+            let component = ComponentManager.createCompFromObject(comp);
+            component = JSON.parse(JSON.stringify(comp));
+
+            this.addComponentToEntity(entity, component);
+        });
+        console.log('oui : ' + entity.components);
         return entity;
+    }
+
+    addComponentToEntity(ent: Entity, comp: Component) {
+        ent.components.push(comp);
+        this.components.push(comp);
     }
 
     private findEntity(id : number) : Entity{
@@ -76,5 +92,15 @@ export class EntitiesManager {
         console.log('-- Entité removed');
     }
     
+
+    static getComponentFromEntity(ent: Entity, comp: Component) : Component {
+        let component = null;
+        ent.components.forEach(c => {
+            if (c.name == comp.name) {
+                component = c;
+            }
+        });
+        return component;
+    }
 
 }

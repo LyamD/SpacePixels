@@ -45,7 +45,7 @@ function html() {
 }
 
 function exportComponents() {
-    exportSystemManager();
+    //exportSystemManager();
     return src('src/server/engine/components/**/*.ts', {allowEmpty: true})
             .pipe(dest('src/client/engine/components/'))
 }

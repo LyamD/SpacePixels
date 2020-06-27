@@ -7,7 +7,7 @@ import * as socketio from 'socket.io';
 import { SystemManager} from "./systems/systemmanager";
 import { SPWorld } from "./world";
 import { ComponentManager, C_Transform, C_Renderer, C_Engine } from './components/component';
-import { S_Render, S_Propulsion } from './systems/systems';
+import { S_Propulsion } from './systems/systems';
 
 
 export class GameManager {
@@ -52,7 +52,7 @@ export class GameManager {
 
             //On appel le système manager à lancer les systèmes
             //En paramètre un Array composé de systemsIndex pour l'ordre de lancement
-            SystemManager.runSystems([SystemManager.systemsIndex.S_Render, SystemManager.systemsIndex.S_Propulsion], SPWorld.ENTITIES);
+            SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion], SPWorld.ENTITIES);
 
             //On envoie toute les entités a tout les clients
             io.emit('state', SPWorld.ENTITIES);
@@ -70,10 +70,6 @@ export class GameManager {
         let testComp2 = new C_Renderer("styled");
         let testComp2B = new C_Renderer("styledkibouge");
         let testComp3 = new C_Engine(12);
-
-        this.SystemManager.addSystem(
-            new S_Render(['C_Transform', 'C_Renderer'])
-        );
 
         this.SystemManager.addSystem(
             new S_Propulsion(['C_Transform', 'C_Engine'])

@@ -25,7 +25,7 @@ export abstract class System {
                if (entity.components != null) {   
                     entity.components.forEach(comp => {
                          //Si le component est présent dans les requis il est l'ajouter à comps
-                         if (this.compRequired.includes(comp.constructor.name)) {
+                         if (this.compRequired.includes(comp.name)) {
                               //console.log(' - entity : ' + entity.id + ' - component required : ' + comp.constructor.name);
                               //On ajoute la réf a notre array local
                               if (SPWorld.getComponentFromEntity(entity, comp) != null) {
@@ -55,11 +55,9 @@ export abstract class System {
 
      mapEntities(entityComponents: Array<Component>) : Array<Component> {
           let arr = new Array<Component>();
-          Object.keys(entityComponents).map((index) => {
-               let c = entityComponents[index];
-               arr[c.constructor.name] = c;
+          entityComponents.forEach(comp => {
+               arr[comp.name] = comp;
           })
-
           return arr;
      }
      
@@ -93,6 +91,9 @@ export class SystemManager {
      runSystems(order: Array<number>, entities : Array<Entity>) {
           order.forEach(systemIndex => {
               let sys : System = this.SYSTEMS[systemIndex];
+              if (sys == null) {
+                   console.log('error, unexistant system called');
+              }
               sys.runEntities(entities, this.CompManager.COMPONENTS);
           });
   

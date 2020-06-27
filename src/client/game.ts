@@ -1,34 +1,50 @@
 import * as PIXI from "pixi.js";
 import {Entity} from "./engine/components/entity";
 import { EntitiesManager } from "./engine/entitiesmanager";
-import { setupMaster } from "cluster";
+import { Component } from "./engine/components/component";
+import { SystemManager } from "./engine/systems/systemmanagerclient";
+import { S_Render } from "./engine/systems/systems";
 
 export class Game {
 
     ENTITIES : Array<Entity>;
+    COMPONENTS : Array<Component>;
     socket : any;
     pixiApp : any;
 
     EntitiesManager : EntitiesManager;
+    SystemManager : SystemManager;
 
     constructor(pixiApp: any, socket : any) {
         this.ENTITIES = new Array<Entity>();
+        this.COMPONENTS = new Array<Component>();
         this.socket = socket;
         this.pixiApp = pixiApp;
 
-        this.EntitiesManager = new EntitiesManager(this.ENTITIES);
+        this.EntitiesManager = new EntitiesManager(this.ENTITIES, this.COMPONENTS);
+        this.SystemManager = new SystemManager(this.COMPONENTS);
 
         this.setupSocket();
+        this.gameSetup();
         this.createWorldRender(pixiApp, delta => {
 
             //Game loop
+
+            this.SystemManager.runSystems([this.SystemManager.systemsIndex.S_Render], this.ENTITIES);
             
         })
+    }
+
+    gameSetup() {
+        this.SystemManager.addSystem(
+            new S_Render(['C_Transform', 'C_Renderer'])
+        );
     }
 
 
     private setupSocket() {
         this.socket.on('state', (data : Array<any>) => {
+            //console.log('Entities recu : ' + JSON.stringify(data));
             data.forEach((entity) => {
 
                 if (entity != null) {
@@ -36,10 +52,12 @@ export class Game {
                     this.EntitiesManager.updateEntity(entity);
 
                 }
-            })
+            });
 
             this.EntitiesManager.cleanEntities(data);
-        })
+
+            //console.log('Entities local : ' + JSON.stringify(this.ENTITIES));
+        });
     }
 
 

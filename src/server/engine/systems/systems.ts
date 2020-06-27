@@ -16,20 +16,6 @@ export class TestSystem extends System {
 
 }
 
-export class S_Render extends System {
-
-    constructor(components : Array<string>) {
-        super(components);
-    }
-
-    run(entityComponents : Array<Component>) {
-        let Components = this.mapEntities(entityComponents);
-        let transform : C_Transform = Components['C_Transform'];
-        let renderer : C_Renderer = Components['C_Renderer'];
-        //console.log('entity rendered at :' + transform.x + ' ; ' + transform.y + ' with value : ' + renderer.style);
-    }
-}
-
 export class S_Propulsion extends System {
 
     constructor(components: Array<string>) {
