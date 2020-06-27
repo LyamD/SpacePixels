@@ -19,8 +19,6 @@ export class EntitiesManager {
         } else {
             let entity = this.findEntity(newEntity.id);
             this.updateEntityFromAny(entity, newEntity);
-
-            console.log('-- entité update');
         }
         
     }
@@ -74,6 +72,8 @@ export class EntitiesManager {
     private removeEntity(entity : Entity) {
         let index = this.entities.indexOf(entity);
         this.entities.slice(index,index);
+
+        console.log('-- Entité removed');
     }
     
 

@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import {Entity} from "./engine/components/entity";
 import { EntitiesManager } from "./engine/entitiesmanager";
+import { setupMaster } from "cluster";
 
 export class Game {
 
@@ -10,21 +11,20 @@ export class Game {
 
     EntitiesManager : EntitiesManager;
 
-    constructor(socket : any) {
+    constructor(pixiApp: any, socket : any) {
         this.ENTITIES = new Array<Entity>();
         this.socket = socket;
-        this.pixiApp = new PIXI.Application({
-            antialias: true,
-            transparent: false,
-            resolution: 1
-        });
+        this.pixiApp = pixiApp;
 
         this.EntitiesManager = new EntitiesManager(this.ENTITIES);
 
         this.setupSocket();
-        this.createWorldRender();
-    }
+        this.createWorldRender(pixiApp, delta => {
 
+            //Game loop
+            
+        })
+    }
 
 
     private setupSocket() {
@@ -44,35 +44,16 @@ export class Game {
 
 
 
-    private createWorldRender() {
-        document.body.appendChild(this.pixiApp.view);
+    createWorldRender(pixi : any, run : (delta : any) => void) {
+        document.body.appendChild(pixi.view);
 
-        this.setupCreateWorldRender();
+        pixi.loader.load(setup);
+
+        function setup() {
+
+            pixi.ticker.add(delta => run(delta));
+        }
     }
-
-    private setupCreateWorldRender() {
-
-        // this.pixiApp.loader.load(setup);
-
-        // state : play;
-
-        // function setup() {
-
-        //     this.pixiApp.ticker.add(delta => gameLoop(delta));
-        // }
-
-        // function gameLoop(delta : any) {
-        //     state(delta);
-            
-        // }
-
-        // function play(delta : any) {
-        //     rectangle.x += 1 + delta;
-        // }
-
-    }
-
-
 
 }
 

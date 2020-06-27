@@ -1,3 +1,4 @@
+import * as PIXI from "pixi.js";
 import * as io from 'socket.io-client';
 import { Game } from './game';
 
@@ -5,7 +6,13 @@ $(function () {
 
     var socket = io();
 
-    var game = new Game(socket);
+    var pixi = new PIXI.Application({
+      antialias: true,
+      resolution: 1
+    });
+
+    var game = new Game(pixi, socket);
+    
 
 
     $('form').submit(function(e) {
