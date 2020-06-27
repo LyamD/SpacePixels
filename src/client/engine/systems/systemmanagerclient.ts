@@ -45,7 +45,7 @@ export abstract class System {
 
                //Si aucun composant n'est nul && aucun composant n'est null
                if (entityComponents.length == this.compRequired.length && entityComponents.every(this.verifyComps)) {
-                    this.run(entityComponents);
+                    this.run(entityComponents, entity.id);
                } else {
                     console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
                }
@@ -66,7 +66,7 @@ export abstract class System {
      }
 
      //Fonction du système à définir pour chaque système
-     abstract run(entityComponents: Array<Component>) : void
+     abstract run(entityComponents: Array<Component>, entityID: number) : void
 
 }
 

@@ -5,6 +5,8 @@ import { Component } from "./engine/components/component";
 import { SystemManager } from "./engine/systems/systemmanagerclient";
 import { S_Render } from "./engine/systems/systems";
 
+export const RenderedEntities = Array<any>();
+
 export class Game {
 
     ENTITIES : Array<Entity>;
@@ -38,7 +40,7 @@ export class Game {
     //est lancé avant notre boucle de jeu
     gameSetup() {
         this.SystemManager.addSystem(
-            new S_Render(['C_Transform', 'C_Renderer'])
+            new S_Render(['C_Transform', 'C_Renderer'], this.pixiApp)
         );
     }
 

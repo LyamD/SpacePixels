@@ -69,8 +69,8 @@ export class GameManager {
         let testComp = new C_Transform(15,12);
         let testCompB = new C_Transform(25,12);
         let testComp2 = new C_Renderer("styled");
-        let testComp2B = new C_Renderer("styledkibouge");
-        let testComp3 = new C_Engine(12);
+        let testComp2B = new C_Renderer("styled");
+        let testComp3 = new C_Engine(2);
 
         this.SystemManager.addSystem(
             new S_Propulsion(['C_Transform', 'C_Engine'])

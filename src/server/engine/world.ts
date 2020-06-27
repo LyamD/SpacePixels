@@ -14,7 +14,7 @@ export class SPWorld {
     // créer une entité, lui assigne un id random et l'ajoute à la liste des entités
     addEntity() : Entity {
         //Génère l'id aléatoire
-        let id = Math.random().toString().substr(2,9);
+        let id = +Math.random().toString().substr(2,9);
         let entity : Entity = {
             id: id
         }

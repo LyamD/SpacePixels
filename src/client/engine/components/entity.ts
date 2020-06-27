@@ -3,7 +3,7 @@ import { Component } from "./component";
 
 
 export interface Entity {
-    id : number|string;
+    id : number;
     components? : Array<Component>;
 }
 
