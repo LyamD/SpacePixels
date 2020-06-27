@@ -26,7 +26,7 @@ export class S_Render extends System {
         let Components = this.mapEntities(entityComponents);
         let transform : C_Transform = Components['C_Transform'];
         let renderer : C_Renderer = Components['C_Renderer'];
-        console.log('entity rendered at :' + transform.x + ' ; ' + transform.y + ' with value : ' + renderer.style);
+        //console.log('entity rendered at :' + transform.x + ' ; ' + transform.y + ' with value : ' + renderer.style);
     }
 }
 
@@ -39,7 +39,6 @@ export class S_Propulsion extends System {
     run(entityComponents : Array<Component>) {
         let Components = this.mapEntities(entityComponents);
         let transform : C_Transform = Components['C_Transform'];
-        console.log('-- ben ? : ' + Components['C_Engine']);
         let propulsion : C_Engine = Components['C_Engine'];
         transform.x = transform.x + propulsion.speed;
     }

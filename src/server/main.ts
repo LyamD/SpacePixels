@@ -14,7 +14,7 @@ let io = require('socket.io')(http);
 app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
 //On créer un gameManager et on lance le jeu
-var GameManager = new game.GameManager();
+var GameManager = new game.GameManager(io);
 GameManager.launch();
 
 //Envoie page client
@@ -24,18 +24,18 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket : any) => {
 
-  // Objet data envoyée
-    let data = new Array<any>();
-    //On y ajoute toute les entitées
-    GameManager.SPWORLD.ENTITIES.forEach(ent => {
-      data.push(ent);
-    })
+  // // Objet data envoyée
+  //   let data = new Array<any>();
+  //   //On y ajoute toute les entitées
+  //   GameManager.SPWORLD.ENTITIES.forEach(ent => {
+  //     data.push(ent);
+  //   })
     
 
     //Connection d'un joueur: On affiche son id
     console.log('player connected : ' + socket.id);
     //On créer une entité et on lui assigne le C_Player
-    socket.emit('debug',data );
+    //socket.emit('debug',data );
     //On transforme l'array en Objet car socketIO ne transmet pas d'array
     //Object.assign(data.ENTITIES, S_Socket.run());
 

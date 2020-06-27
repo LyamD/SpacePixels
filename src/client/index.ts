@@ -1,15 +1,11 @@
 import * as io from 'socket.io-client';
-import * as game from './game';
+import { Game } from './game';
 
 $(function () {
 
     var socket = io();
 
-    game.run(socket);
-
-
-
-
+    var game = new Game(socket);
 
 
     $('form').submit(function(e) {

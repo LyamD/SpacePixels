@@ -45,8 +45,14 @@ function html() {
 }
 
 function exportComponents() {
+    exportSystemManager();
     return src('src/server/engine/components/**/*.ts', {allowEmpty: true})
             .pipe(dest('src/client/engine/components/'))
+}
+
+function exportSystemManager() {
+    return src('src/server/engine/systems/systemmanager.ts', {allowEmpty: true})
+            .pipe(dest('src/client/engine/systems/'))
 }
 
 function typescriptClient() {

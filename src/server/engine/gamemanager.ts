@@ -1,11 +1,13 @@
 // MatterJS
 import * as matterjs from 'matter-js';
 const { Engine } = require("matter-js");
+//SocketIO
+import * as socketio from 'socket.io';
 //SP imports
 import { SystemManager} from "./systems/systemmanager";
 import { SPWorld } from "./world";
 import { ComponentManager, C_Transform, C_Renderer, C_Engine } from './components/component';
-import { TestSystem, S_Render, S_Propulsion } from './systems/systems';
+import { S_Render, S_Propulsion } from './systems/systems';
 
 
 export class GameManager {
@@ -17,14 +19,18 @@ export class GameManager {
     SystemManager: SystemManager;
     //Notre monde qui contient les entitées
     SPWORLD : SPWorld;
+    //Le server io
+    io : socketio.Server;
+    
     
 
-    constructor() {
+    constructor(io : socketio.Server) {
         //Assigner les value des managers
         this.matterEngine = matterjs.Engine.create();
         this.SPWORLD = new SPWorld();
         this.ComponentManager = new ComponentManager();
         this.SystemManager = new SystemManager(this.ComponentManager);
+        this.io = io;
         
     };
 
@@ -33,6 +39,7 @@ export class GameManager {
         let matterEngine = this.matterEngine;
         let SystemManager = this.SystemManager;
         let SPWorld = this.SPWORLD;
+        let io = this.io;
 
         //Appel à la fonction setup
         this.setup();
@@ -46,6 +53,9 @@ export class GameManager {
             //On appel le système manager à lancer les systèmes
             //En paramètre un Array composé de systemsIndex pour l'ordre de lancement
             SystemManager.runSystems([SystemManager.systemsIndex.S_Render, SystemManager.systemsIndex.S_Propulsion], SPWorld.ENTITIES);
+
+            //On envoie toute les entités a tout les clients
+            io.emit('state', SPWorld.ENTITIES);
            
             
         }, 1000/60);
@@ -70,7 +80,7 @@ export class GameManager {
         );
 
 
-        // this.SPWORLD.addComponentToEntity(testEnt1, testComp, this.ComponentManager);
+        this.SPWORLD.addComponentToEntity(testEnt1, testComp, this.ComponentManager);
         this.SPWORLD.addComponentToEntity(testEnt1, testComp2, this.ComponentManager);
 
         this.SPWORLD.addComponentToEntity(testEnt2, testCompB, this.ComponentManager);
