@@ -43,7 +43,7 @@ export abstract class System {
                }
 
 
-               //Si aucun composant n'est nul
+               //Si aucun composant n'est nul && aucun composant n'est null
                if (entityComponents.length == this.compRequired.length && entityComponents.every(this.verifyComps)) {
                     this.run(entityComponents);
                } else {
@@ -52,6 +52,7 @@ export abstract class System {
           });
      }
 
+     //Map les entités à un tableau avec key:value où key est le nom du component
      mapEntities(entityComponents: Array<Component>) : Array<Component> {
           var arr = new Array<Component>();
           entityComponents.forEach(comp => {
@@ -64,16 +65,16 @@ export abstract class System {
           return (value != null);
      }
 
-     
+     //Fonction du système à définir pour chaque système
      abstract run(entityComponents: Array<Component>) : void
 
 }
 
+//Classe s'occupant de gérer les systèmes
 export class SystemManager {
      SYSTEMS : Array<System>;
      COMPONENTS: Array<Component>;
      systemsIndex : SystemsIndexForOrder;
-     //[key: string]: any;
 
      constructor(components: Array<Component>) {
           this.SYSTEMS = Array<System>();
@@ -81,12 +82,15 @@ export class SystemManager {
           this.systemsIndex = new SystemsIndexForOrder();
      }
 
+     //Ajoute un système
      addSystem(sys: System) {
           this.SYSTEMS.push(sys);
           let i = this.SYSTEMS.indexOf(sys);
+          //La position du système dans le tableau est ajouté au tableau de mapping
           this.systemsIndex[sys.constructor.name] = i;
      }
 
+     //Lance tout les systèmes
      runSystems(order: Array<number>, entities : Array<Entity>) {
           order.forEach(systemIndex => {
                let sys : System = this.SYSTEMS[systemIndex];

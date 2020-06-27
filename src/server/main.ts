@@ -24,14 +24,6 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket : any) => {
 
-  // // Objet data envoyée
-  //   let data = new Array<any>();
-  //   //On y ajoute toute les entitées
-  //   GameManager.SPWORLD.ENTITIES.forEach(ent => {
-  //     data.push(ent);
-  //   })
-    
-
     //Connection d'un joueur: On affiche son id
     console.log('player connected : ' + socket.id);
     //On créer une entité et on lui assigne le C_Player

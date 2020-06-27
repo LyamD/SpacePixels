@@ -26,6 +26,7 @@ export class ComponentManager {
         }
     }
 
+    //créer un component typé à partir d'un objet non typé
     static createCompFromObject(comp: any) : Component{
 
         function instantiateCompFromString(name: string) : Component {

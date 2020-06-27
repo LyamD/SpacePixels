@@ -61,6 +61,7 @@ export class GameManager {
         }, 1000/60);
     }
 
+    //Est lancer avant de lancer la boucle serveur
     private setup() {
 
         let testEnt1 = this.SPWORLD.addEntity();

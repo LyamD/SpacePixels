@@ -4,16 +4,17 @@ import { Game } from './game';
 
 $(function () {
 
+    // on créer un socket client
     var socket = io();
 
+    //Création de l'appli PIXI
     var pixi = new PIXI.Application({
       antialias: true,
       resolution: 1
     });
 
+    //Création de l'instance de jeu
     var game = new Game(pixi, socket);
-    
-
 
     $('form').submit(function(e) {
       e.preventDefault(); // prevents page reloading
