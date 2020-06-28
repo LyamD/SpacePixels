@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
+
 io.on('connection', (socket : any) => {
 
     //Connection d'un joueur: On affiche son id
@@ -33,6 +34,12 @@ io.on('connection', (socket : any) => {
 
     //On envoie une liste de tout les joueurs présent
     //socket.emit('currentPlayers', sendedEntities);
+
+    socket.on('PlayerInput', (data : any) => {
+
+      console.log('player inputs : ' + JSON.stringify(data));
+    });
+
 
     //socket.broadcast.emit('newPlayer', PLAYERS[socket.id]);
 

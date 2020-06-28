@@ -1,46 +1,65 @@
-import { Client } from "socket.io";
 import { PlayerSocket } from ".";
 
 export function setupSocketManager() {
-
-    PlayerSocket
-
+    inputManagement();
 }
 
-export function inputManagement(socket: any) {
+
+// ---- Input Management
+function inputManagement() {
 
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('keyup', onKeyUp);
 }
 
-interface InputsType {
-    action : string;
-    state : boolean;
-}
 
 var inputs = {
-    37 : {
-        action : 'moveGauche',
-        state : false,
-    },
+
     38 : {
-        action : 'moveUp',
-        state : false,
+        //MoveUp
+        action : 'MoveUp',
+        state : false
     },
-    39 : {
-        action : 'moveDroite',
-        state : false,
-    },
+
     40 : {
-        action : 'moveDown',
-        state : false,
+        //MoveDown
+        action : 'MoveDown',
+        state : false
+    },
+
+    37 : {
+        //MoveGauche
+        action : 'MoveGauche',
+        state : false
+    },
+
+    39 : {
+        //MoveDroite
+        action : 'MoveDroite',
+        state : false
     },
 }
 
-function onKeyDown(env : KeyboardEvent) {
-    
+function onKeyDown(ev : KeyboardEvent) {
+    keyPressed(ev.keyCode);
 }
 
-function onKeyUp(socket: any) {
+function onKeyUp(ev: KeyboardEvent) {
+    inputs[ev.keyCode].state = false;
+    PlayerSocket.emit('PlayerInput', {
+        action : inputs[ev.keyCode].action,
+        state : false
+    });
+}
 
+function keyPressed(keyCode : string | number) {
+    //Si la touche n'a pas encore été pressée
+    if (!inputs[keyCode].state) {
+        PlayerSocket.emit('PlayerInput', {
+            action : inputs[keyCode].action,
+            state : true
+        });
+        console.log('touche pressé : ' + inputs[keyCode].action);
+        inputs[keyCode].state = true;
+    }
 }

@@ -15,9 +15,9 @@ export abstract class System {
      runEntities(entities : Array<Entity>, components : Array<Component>) {
           //Pour toute les entités
           entities.forEach(entity => {
-               console.log(' --------- System : ' + this.constructor.name + ' , Entity : ' + entity.id);
+               //console.log(' --------- System : ' + this.constructor.name + ' , Entity : ' + entity.id);
                this.compRequired.forEach(r => {
-                    console.log('-- required : ' + r);
+                    //console.log('-- required : ' + r);
                })
                //On créer un array on l'on tente de récuperer tout les component requis
                var entityComponents = new Array<Component>();
@@ -26,18 +26,18 @@ export abstract class System {
                     entity.components.forEach(comp => {
                          //Si le component est présent dans les requis il est l'ajouter à comps
                          if (this.compRequired.includes(comp.name)) {
-                              console.log(' - entity : ' + entity.id + ' - component required : ' + comp.name);
+                              //console.log(' - entity : ' + entity.id + ' - component required : ' + comp.name);
                               //On ajoute la réf a notre array local
                               if (EntitiesManager.getComponentFromEntity(entity, comp) != null) {
                                    let c = EntitiesManager.getComponentFromEntity(entity, comp);
                                    entityComponents.push(c);
                                    //console.log("voila : " + c.name + 'd\'entité  : ' + entity.id);
                               } else {
-                                   console.log('missing comp');
+                                   //console.log('missing comp');
                               }
                               //console.log('oooof : ' + entityComponents['C_Transform'].x);
                          } else {
-                              console.log(' - entity : ' + entity.id + ' - component refused : ' + comp.name);
+                              //console.log(' - entity : ' + entity.id + ' - component refused : ' + comp.name);
                          }
                     });
                }
@@ -47,7 +47,7 @@ export abstract class System {
                if (entityComponents.length == this.compRequired.length && entityComponents.every(this.verifyComps)) {
                     this.run(entityComponents, entity.id);
                } else {
-                    console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
+                    //console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
                }
           });
      }

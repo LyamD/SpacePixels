@@ -13,7 +13,6 @@ export class S_Render extends System {
     }
 
     run(entityComponents : Array<Component>, entityID : number) {
-        console.log('- run S_Render')
         let Components = this.mapEntities(entityComponents);
         let transform : C_Transform = Components['C_Transform'];
         let renderer : C_Renderer = Components['C_Renderer'];
@@ -36,6 +35,7 @@ export class S_Render extends System {
                 g.rotation = transform.rotation;
 
                 pixiApp.stage.addChild(g);
+                console.log('Nouveau Graphics ' )
                 RenderedEntities[entityID] = g;
             } else {
                 graphics.x = transform.x;
@@ -56,7 +56,7 @@ export class S_Render extends System {
             
                 default: 
                     let gNoStyle = new Graphics();
-                    g.beginFill(0xFF3300);
+                    g.beginFill(0x000000);
                     g.drawRect(0, 0, 64, 64);
                     g.endFill();
                     return gNoStyle;
