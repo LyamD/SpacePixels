@@ -4,6 +4,8 @@ import { EntitiesManager } from "./engine/entitiesmanager";
 import { Component } from "./engine/components/component";
 import { SystemManager } from "./engine/systems/systemmanagerclient";
 import { S_Render } from "./engine/systems/systems";
+import { setupSocketManager } from "./socketmanager";
+import { PlayerSocket } from ".";
 
 export const RenderedEntities = Array<any>();
 
@@ -11,16 +13,14 @@ export class Game {
 
     ENTITIES : Array<Entity>;
     COMPONENTS : Array<Component>;
-    socket : any;
     pixiApp : any;
 
     EntitiesManager : EntitiesManager;
     SystemManager : SystemManager;
 
-    constructor(pixiApp: any, socket : any) {
+    constructor(pixiApp: any) {
         this.ENTITIES = new Array<Entity>();
         this.COMPONENTS = new Array<Component>();
-        this.socket = socket;
         this.pixiApp = pixiApp;
 
         this.EntitiesManager = new EntitiesManager(this.ENTITIES, this.COMPONENTS);
@@ -46,7 +46,9 @@ export class Game {
 
     //Setup tout les event de socket.io
     private setupSocket() {
-        this.socket.on('state', (data : Array<any>) => {
+
+        //Setup Event 'state' envoyant toutes les entités (Besoin de le faire ici et pas dans SocketManager en raison du besoin des entités)
+        PlayerSocket.on('state', (data : Array<any>) => {
             //console.log('Entities recu : ' + JSON.stringify(data));
             data.forEach((entity) => {
 
@@ -58,6 +60,8 @@ export class Game {
 
             this.EntitiesManager.cleanEntities(data);
         });
+
+        setupSocketManager();
     }
 
 
