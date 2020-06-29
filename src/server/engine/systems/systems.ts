@@ -1,5 +1,5 @@
 import { System } from "./systemmanager";
-import { Component, C_Transform, C_Renderer, C_Engine } from "../components/component";
+import { Component, C_Transform, C_Engine } from "../components/components";
 
 export class S_Propulsion extends System {
 

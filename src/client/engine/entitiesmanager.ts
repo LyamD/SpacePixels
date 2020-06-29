@@ -1,5 +1,6 @@
 import { Entity } from "./components/entity";
-import { Component, ComponentManager } from "./components/component";
+import { ComponentManager } from "./components/componentManager";
+import { Component } from "./components/components";
 
 export class EntitiesManager {
 

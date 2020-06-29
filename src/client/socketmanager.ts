@@ -45,11 +45,16 @@ function onKeyDown(ev : KeyboardEvent) {
 }
 
 function onKeyUp(ev: KeyboardEvent) {
-    inputs[ev.keyCode].state = false;
-    PlayerSocket.emit('PlayerInput', {
-        action : inputs[ev.keyCode].action,
-        state : false
-    });
+
+    try {
+        inputs[ev.keyCode].state = false;
+        PlayerSocket.emit('PlayerInput', {
+            action : inputs[ev.keyCode].action,
+            state : false
+        });
+    } catch (e) {
+        console.log('Touche non bindée, error : ' + e);   
+    }
 }
 
 function keyPressed(keyCode : string | number) {

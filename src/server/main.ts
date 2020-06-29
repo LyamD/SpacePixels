@@ -1,6 +1,5 @@
 //Server Imports
 import * as express from 'express';
-import * as socketio from 'socket.io';
 import * as path from 'path';
 
 // Game Import

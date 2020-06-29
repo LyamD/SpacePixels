@@ -1,11 +1,11 @@
 import * as PIXI from "pixi.js";
 import {Entity} from "./engine/components/entity";
 import { EntitiesManager } from "./engine/entitiesmanager";
-import { Component } from "./engine/components/component";
 import { SystemManager } from "./engine/systems/systemmanagerclient";
 import { S_Render } from "./engine/systems/systems";
 import { setupSocketManager } from "./socketmanager";
 import { PlayerSocket } from ".";
+import { Component } from "./engine/components/components";
 
 export const RenderedEntities = Array<any>();
 

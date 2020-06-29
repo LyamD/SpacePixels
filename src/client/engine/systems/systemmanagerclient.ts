@@ -1,4 +1,4 @@
-import { ComponentManager, C_Transform, Component } from "../components/component";
+import { Component } from "../components/components";
 import { Entity } from "../components/entity";
 import { EntitiesManager } from "../entitiesmanager";
 

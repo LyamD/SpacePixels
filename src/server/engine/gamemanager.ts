@@ -6,8 +6,9 @@ import * as socketio from 'socket.io';
 //SP imports
 import { SystemManager} from "./systems/systemmanager";
 import { SPWorld } from "./world";
-import { ComponentManager, C_Transform, C_Renderer, C_Engine } from './components/component';
+import { ComponentManager} from './components/componentmanager';
 import { S_Propulsion } from './systems/systems';
+import { C_Transform, C_Renderer, C_Engine } from './components/components';
 
 
 export class GameManager {

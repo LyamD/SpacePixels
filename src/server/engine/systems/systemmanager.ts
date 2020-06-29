@@ -1,6 +1,7 @@
-import { ComponentManager, C_Transform, Component } from "../components/component";
+import { ComponentManager } from "../components/componentmanager";
 import { Entity } from "../components/entity";
 import { SPWorld } from "../world";
+import { Component } from "../components/components";
 
 
 //Classe de base pour tout les systèmes

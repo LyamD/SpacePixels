@@ -1,7 +1,8 @@
 import { System } from "./systemmanagerclient";
-import { Component, C_Transform, C_Renderer } from "../components/component";
+import { C_Transform, C_Renderer } from "../components/components";
 import { RenderedEntities } from "../../game";
 import { Graphics } from "pixi.js";
+import { Component } from "../components/components";
 
 export class S_Render extends System {
 
