@@ -8,7 +8,12 @@ export abstract class Component {
 }
 
 export class C_Player extends Component {
-    socket;
+    socketID : string;
+
+    constructor(p_id : string = '') {
+        super();
+        this.socketID = p_id;
+    }
 }
 
 export class C_Transform extends Component {
@@ -16,20 +21,20 @@ export class C_Transform extends Component {
     y: number;
     rotation: number;
 
-    constructor(x: number = 0, y: number = 0, rot: number = 0) {
+    constructor(p_x: number = 0, p_y: number = 0, p_rot: number = 0) {
         super();
-        this.x = x;
-        this.y = y;
-        this.rotation = rot;
+        this.x = p_x;
+        this.y = p_y;
+        this.rotation = p_rot;
     }
 }
 
 export class C_Renderer extends Component {
     style: string;
 
-    constructor(style : string = '') {
+    constructor(p_style : string = '') {
         super();
-        this.style = style;
+        this.style = p_style;
     }
 }
 
@@ -39,5 +44,15 @@ export class C_Engine extends Component {
     constructor(p_speed : number = 0) {
         super();
         this.speed = p_speed;
+    }
+}
+
+export class C_RigidBody extends Component {
+
+    weight : number;
+
+    constructor(p_weight : number = 1) {
+        super();
+        this.weight = p_weight;
     }
 }

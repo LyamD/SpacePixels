@@ -1,64 +1,89 @@
 import { Entity } from "./components/entity";
 import {ComponentManager } from "./components/componentmanager";
-import { Component } from "./components/components";
+import { Component, C_Player, C_Transform } from "./components/components";
 
 export class SPWorld {
 
     // Array contenant toutes les entités
     ENTITIES : Array<Entity>;
+    componentManager : ComponentManager;
     
 
     constructor() {
         this.ENTITIES = Array<Entity>();
+        this.componentManager = new ComponentManager();
     }
 
-    // créer une entité, lui assigne un id random et l'ajoute à la liste des entités
-    addEntity() : Entity {
-        //Génère l'id aléatoire
-        let id = +Math.random().toString().substr(2,9);
-        let entity : Entity = {
-            id: id
+    //Ajoute une entité a la liste des entités et ses components à la liste des components.
+    addEntity(entity : Entity) {
+        
+        if (entity.components == null) {
+            entity.components = new Array<Component>();
+        } else {
+            entity.components.forEach(component => {
+                this.componentManager.COMPONENTS.push(component);
+            })
         }
         //ajoute l'entité a l'Array
         this.ENTITIES.push(entity);
-
-        return entity;
     };
 
+    getEntityFromID(p_id : number) : Entity {
+        let entity = null;
+        this.ENTITIES.forEach(ent => {
+            if (ent.id == p_id) {
+                entity = ent;
+            }
+        });
+        return entity;
+    }
+
     /* Ajoute un component à une entité
-    *   @param ent: Entity l'entité qui recoit le component
+    *   @param ent: Entity l'entité qui recoit le component ou l'id de l'entité
     *   @param comp : Component le component qui est ajouté
     *   @param compManager : ComponentManager requis pour ajouter le component à la liste des components
     */
-    addComponentToEntity(ent: Entity, comp: Component, compManager: ComponentManager) {
-        //Si c'est le premier component on créer l'array
-        if (ent.components == null) {
-            ent.components = new Array<Component>();
+    addComponentToEntity(p_entity: Entity | number, p_component: Component) {
+        //Si c'est l'id qui est passé
+        var entity : Entity;
+        if (typeof p_entity === "number") {
+            entity = this.getEntityFromID(p_entity);
+        } else {
+            entity = p_entity;
         }
-        //On ajoute le component à l'array de l'entité et à celui du compManager
-        ent.components.push(comp);
-        compManager.COMPONENTS.push(comp);
 
-        // console.log('AddToEntity : ' + ent.id + ' ,component : ' + comp.constructor.name);
-
+        entity.components.push(p_component);
+        this.componentManager.COMPONENTS.push(p_component);
     }
 
+    // newPlayer(socket : SocketIO.EngineSocket) {
+    //     let player = this.addEntity();
+    //     let playerComp = new C_Player(socket.id);
+    //     let transformComp = new C_Transform(50,50);
+
+        
+    // }
+
     /* Permet de récuperer la réf d'un composant d'une entité spécifique
-    *   @param ent : Entity 
+    *   @param ent : Entity ou son ID
     *   @param comp : Component
     * 
     *   @return : Component ou null si le component n'est pas présent.
     */
-    static getComponentFromEntity(ent: Entity, comp: Component) : Component {
+    getComponentFromEntity(p_entity: Entity | number, p_component: Component) : Component {
         let component = null;
-        ent.components.forEach(c => {
-            if (c.name == comp.name) {
+        let entity;
+        if (typeof p_entity === "number") {
+            entity = this.getEntityFromID(p_entity);
+        } else {
+            entity = p_entity;
+        }
+
+        entity.components.forEach(c => {
+            if (c.name == p_component.name) {
                 component = c;
             }
         });
-
-        //console.log('getCompFromEntity returned : ' + component.constructor.name + ' from ent : ' + ent.id);
-
         return component;
     }
 }

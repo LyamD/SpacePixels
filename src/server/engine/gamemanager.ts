@@ -9,29 +9,28 @@ import { SPWorld } from "./world";
 import { ComponentManager} from './components/componentmanager';
 import { S_Propulsion } from './systems/systems';
 import { C_Transform, C_Renderer, C_Engine } from './components/components';
+import { ServerIO } from '../main';
+import { Entity } from './components/entity';
 
 
 export class GameManager {
 
     //Le moteur de matterEngine
     matterEngine: any;
-    // Nos managers
-    ComponentManager: ComponentManager;
-    SystemManager: SystemManager;
     //Notre monde qui contient les entitées
     SPWORLD : SPWorld;
+    //Managers
+    SystemManager: SystemManager;
     //Le server io
     io : socketio.Server;
     
     
 
-    constructor(io : socketio.Server) {
+    constructor() {
         //Assigner les value des managers
         this.matterEngine = matterjs.Engine.create();
         this.SPWORLD = new SPWorld();
-        this.ComponentManager = new ComponentManager();
-        this.SystemManager = new SystemManager(this.ComponentManager);
-        this.io = io;
+        this.SystemManager = new SystemManager(this.SPWORLD.componentManager, this.SPWORLD.ENTITIES);
         
     };
 
@@ -40,7 +39,6 @@ export class GameManager {
         let matterEngine = this.matterEngine;
         let SystemManager = this.SystemManager;
         let SPWorld = this.SPWORLD;
-        let io = this.io;
 
         //Appel à la fonction setup
         this.setup();
@@ -53,10 +51,10 @@ export class GameManager {
 
             //On appel le système manager à lancer les systèmes
             //En paramètre un Array composé de systemsIndex pour l'ordre de lancement
-            SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion], SPWorld.ENTITIES);
+            SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion]);
 
             //On envoie toute les entités a tout les clients
-            io.emit('state', SPWorld.ENTITIES);
+            ServerIO.emit('state', SPWorld.ENTITIES);
            
             
         }, 1000/60);
@@ -65,25 +63,24 @@ export class GameManager {
     //Est lancer avant de lancer la boucle serveur
     private setup() {
 
-        let testEnt1 = this.SPWORLD.addEntity();
-        let testEnt2 = this.SPWORLD.addEntity();
-        let testComp = new C_Transform(15,12);
-        let testCompB = new C_Transform(25,12);
-        let testComp2 = new C_Renderer("styled");
-        let testComp2B = new C_Renderer("styled");
-        let testComp3 = new C_Engine(2);
+        let c_transform1 = new C_Transform(25,12);
+        let c_transform2 = new C_Transform(15,12);
+        let c_renderer1 = new C_Renderer("styled");
+        let c_renderer2 = new C_Renderer("styled");
+        let c_engine1 = new C_Engine(2);
+
+        let entity1 = new Entity([c_transform1, c_renderer1, c_engine1]);
+        let entity2 = new Entity([c_transform2, c_renderer2]);
+
+        this.SPWORLD.addEntity(entity1);
+        this.SPWORLD.addEntity(entity2);
 
         this.SystemManager.addSystem(
             new S_Propulsion(['C_Transform', 'C_Engine'])
         );
 
 
-        this.SPWORLD.addComponentToEntity(testEnt1, testComp, this.ComponentManager);
-        this.SPWORLD.addComponentToEntity(testEnt1, testComp2, this.ComponentManager);
-
-        this.SPWORLD.addComponentToEntity(testEnt2, testCompB, this.ComponentManager);
-        this.SPWORLD.addComponentToEntity(testEnt2, testComp2B, this.ComponentManager);
-        this.SPWORLD.addComponentToEntity(testEnt2, testComp3, this.ComponentManager);
+        
     }
      
 };

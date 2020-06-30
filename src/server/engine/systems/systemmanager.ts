@@ -26,18 +26,12 @@ export abstract class System {
                var entityComponents = new Array<Component>();
                //Pour tout les composant (S'ils existent)
                if (entity.components != null) {   
-                    entity.components.forEach(comp => {
+                    entity.components.forEach((comp : Component) => {
                          //Si le component est présent dans les requis il est l'ajouter à notre array de component envoyer au système
                          if (this.compRequired.includes(comp.name)) {
                               //console.log(' - entity : ' + entity.id + ' - component required : ' + comp.constructor.name);
                               //On ajoute la réf a notre array local
-                              if (SPWorld.getComponentFromEntity(entity, comp) != null) {
-                                   let c = SPWorld.getComponentFromEntity(entity, comp);
-                                   entityComponents.push(c);
-                                   //console.log("voila : " + c.constructor.name);
-                              } else {
-                                   //console.log('missing required comp');
-                              }
+                              entityComponents.push(comp);   
                               //console.log('oooof : ' + entityComponents['C_Transform'].x);
                          } else {
                               //console.log(' - entity : ' + entity.id + ' - component refused : ' + comp.constructor.name);
@@ -51,13 +45,13 @@ export abstract class System {
                     //console.log('lancement run()');
                     this.run(entityComponents, entity.id);
                } else {
-                    //console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
+                    console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
                }
           });
      }
 
      //Map les entités à un tableau avec key:value où key est le nom du component
-     mapEntities(entityComponents: Array<Component>) : Array<Component> {
+     static mapEntities(entityComponents: Array<Component>) : Array<Component> {
           let arr = new Array<Component>();
           entityComponents.forEach(comp => {
                arr[comp.name] = comp;
@@ -78,11 +72,13 @@ export abstract class System {
 export class SystemManager {
      SYSTEMS : Array<System>;
      CompManager: ComponentManager;
+     entities :  Array<Entity>;
      systemsIndex : SystemsIndexForOrder;
 
-     constructor(CompManager: ComponentManager) {
+     constructor(p_CompManager: ComponentManager, p_entities : Array<Entity>) {
           this.SYSTEMS = Array<System>();
-          this.CompManager = CompManager;
+          this.CompManager = p_CompManager;
+          this.entities = p_entities;
           this.systemsIndex = new SystemsIndexForOrder();
      }
 
@@ -95,13 +91,13 @@ export class SystemManager {
      }
 
      //Lance tout les systèmes
-     runSystems(order: Array<number>, entities : Array<Entity>) {
+     runSystems(order: Array<number>) {
           order.forEach(systemIndex => {
               let sys : System = this.SYSTEMS[systemIndex];
               if (sys == null) {
                    console.log('error, unexistant system called');
               }
-              sys.runEntities(entities, this.CompManager.COMPONENTS);
+              sys.runEntities(this.entities, this.CompManager.COMPONENTS);
           });
   
       }

@@ -4,17 +4,21 @@ import * as path from 'path';
 
 // Game Import
 import * as game from './engine/gamemanager';
+import { GameSocketManager } from './GameSocketManager';
 
 //Création serveur express/node
 const app = express();
 let http = require('http').createServer(app);
-let io = require('socket.io')(http);
+export const ServerIO = require('socket.io')(http);
 //Changement path coté client
 app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
+
+
 //On créer un gameManager et on lance le jeu
-var GameManager = new game.GameManager(io);
+var GameManager = new game.GameManager();
 GameManager.launch();
+var socketManager = new GameSocketManager(GameManager);
 
 //Envoie page client
 app.get('/', (req, res) => {
@@ -22,45 +26,18 @@ app.get('/', (req, res) => {
 });
 
 
-io.on('connection', (socket : any) => {
+ServerIO.on('connection', (socket : SocketIO.EngineSocket) => {
 
     //Connection d'un joueur: On affiche son id
-    console.log('player connected : ' + socket.id);
-    //On créer une entité et on lui assigne le C_Player
-    //socket.emit('debug',data );
-    //On transforme l'array en Objet car socketIO ne transmet pas d'array
-    //Object.assign(data.ENTITIES, S_Socket.run());
+    socketManager.newPlayer(socket);
 
-    //On envoie une liste de tout les joueurs présent
-    //socket.emit('currentPlayers', sendedEntities);
-
-    socket.on('PlayerInput', (data : any) => {
-
-      console.log('player inputs : ' + JSON.stringify(data));
-    });
-
-
-    //socket.broadcast.emit('newPlayer', PLAYERS[socket.id]);
-
-    socket.on('keyDown', (msg : string) => {
-      io.emit('chat message', msg + 'pressed');
-    });
-
-    socket.on('keyUp', (msg : string) => {
-      io.emit('chat message', msg + 'unpressed');
-    });
 
     socket.on('chat message', (msg : string) => {
-        io.emit('chat message', msg);
+      ServerIO.emit('chat message', msg);
       });
 
 
-    socket.on('disconnect', () => {
-
-        console.log('user disconnected : ' + socket.id);
-        //delete PLAYERS[socket.id];
-        io.emit('disconnect', socket.id);
-    });
+    
 
 
 });
