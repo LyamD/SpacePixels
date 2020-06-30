@@ -40,12 +40,12 @@ export abstract class System {
                }
 
 
-               //Si aucun composant n'est nul && si aucun composants n'est null
-               if (entityComponents.length == this.compRequired.length && entityComponents.every(this.verifyComps)) {
+               //Si aucun composant n'est nul && si aucun composants n'est null && si il y a au moins 1 composants
+               if (entityComponents.length == this.compRequired.length && entityComponents.every(this.verifyComps) && entityComponents.length != 0) {
                     //console.log('lancement run()');
                     this.run(entityComponents, entity.id);
                } else {
-                    console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
+                    //console.log('missing Comps : ' + entityComponents.length + ' / ' +  this.compRequired.length);
                }
           });
      }
@@ -96,8 +96,9 @@ export class SystemManager {
               let sys : System = this.SYSTEMS[systemIndex];
               if (sys == null) {
                    console.log('error, unexistant system called');
-              }
+              } else {
               sys.runEntities(this.entities, this.CompManager.COMPONENTS);
+              }
           });
   
       }

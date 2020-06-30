@@ -7,8 +7,8 @@ import * as socketio from 'socket.io';
 import { SystemManager} from "./systems/systemmanager";
 import { SPWorld } from "./world";
 import { ComponentManager} from './components/componentmanager';
-import { S_Propulsion } from './systems/systems';
-import { C_Transform, C_Renderer, C_Engine } from './components/components';
+import { S_Propulsion, S_PlayerInputs } from './systems/systems';
+import { C_Transform, C_Renderer, C_Engine, C_Player } from './components/components';
 import { ServerIO } from '../main';
 import { Entity } from './components/entity';
 
@@ -51,7 +51,7 @@ export class GameManager {
 
             //On appel le système manager à lancer les systèmes
             //En paramètre un Array composé de systemsIndex pour l'ordre de lancement
-            SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion]);
+            SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion, SystemManager.systemsIndex.S_PlayerInputs]);
 
             //On envoie toute les entités a tout les clients
             ServerIO.emit('state', SPWorld.ENTITIES);
@@ -77,6 +77,10 @@ export class GameManager {
 
         this.SystemManager.addSystem(
             new S_Propulsion(['C_Transform', 'C_Engine'])
+        );
+
+        this.SystemManager.addSystem(
+            new S_PlayerInputs(['C_Player', 'C_Transform'])
         );
 
 

@@ -1,6 +1,5 @@
 export abstract class Component {
     name : string;
-    [key: string]: any;
 
     constructor() {
         this.name = this.constructor.name;
@@ -9,10 +8,22 @@ export abstract class Component {
 
 export class C_Player extends Component {
     socketID : string;
+    inputs : {
+        MoveUp,
+        MoveDown,
+        MoveGauche,
+        MoveDroite
+    };
 
     constructor(p_id : string = '') {
         super();
         this.socketID = p_id;
+        this.inputs = {
+            MoveUp: false,
+            MoveDown : false,
+            MoveGauche: false,
+            MoveDroite: false
+        }
     }
 }
 

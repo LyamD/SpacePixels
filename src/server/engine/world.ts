@@ -66,11 +66,11 @@ export class SPWorld {
 
     /* Permet de récuperer la réf d'un composant d'une entité spécifique
     *   @param ent : Entity ou son ID
-    *   @param comp : Component
+    *   @param comp : Component on son nom
     * 
     *   @return : Component ou null si le component n'est pas présent.
     */
-    getComponentFromEntity(p_entity: Entity | number, p_component: Component) : Component {
+    getComponentFromEntity(p_entity: Entity | number, p_component: string) {
         let component = null;
         let entity;
         if (typeof p_entity === "number") {
@@ -80,9 +80,12 @@ export class SPWorld {
         }
 
         entity.components.forEach(c => {
-            if (c.name == p_component.name) {
-                component = c;
-            }
+                console.log('foreach comp : ' + c.name);
+                if (c.name == p_component) {
+                    console.log('trouvay');
+                    component = c;
+                }
+            
         });
         return component;
     }
