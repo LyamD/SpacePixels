@@ -35,3 +35,10 @@ export class S_PlayerInputs extends System {
 
     }
 }
+
+export class S_RigidBody extends System {
+
+    run(entityComponents : Array<Component>, entityID : number) {
+
+    }
+}

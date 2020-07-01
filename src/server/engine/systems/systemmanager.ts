@@ -1,4 +1,4 @@
-import { ComponentManager } from "../components/componentmanager";
+import { ComponentManager } from "../components/componentmanagerserver";
 import { Entity } from "../components/entity";
 import { SPWorld } from "../world";
 import { Component } from "../components/components";

@@ -57,13 +57,3 @@ export class C_Engine extends Component {
         this.speed = p_speed;
     }
 }
-
-export class C_RigidBody extends Component {
-
-    weight : number;
-
-    constructor(p_weight : number = 1) {
-        super();
-        this.weight = p_weight;
-    }
-}

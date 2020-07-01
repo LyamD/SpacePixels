@@ -1,5 +1,5 @@
 import { Entity } from "./components/entity";
-import {ComponentManager } from "./components/componentmanager";
+import {ComponentManager } from "./components/componentmanagerserver";
 import { Component, C_Player, C_Transform } from "./components/components";
 
 export class SPWorld {

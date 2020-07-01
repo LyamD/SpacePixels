@@ -46,10 +46,14 @@ function html() {
 
 function exportComponents() {
     //exportSystemManager();
-    return src('src/server/engine/components/**/*.ts', {allowEmpty: true})
+    return src([ 
+        'src/server/engine/components/components.ts', 
+        'src/server/engine/components/componentsclient.ts'
+    ], {allowEmpty: true})
             .pipe(dest('src/client/engine/components/'))
 }
 
+//Do not use
 function exportSystemManager() {
     return src('src/server/engine/systems/systemmanager.ts', {allowEmpty: true})
             .pipe(dest('src/client/engine/systems/'))

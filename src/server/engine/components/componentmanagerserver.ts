@@ -1,4 +1,5 @@
-import { Component, C_Transform, C_Player, C_Renderer, C_Engine, C_RigidBody } from "./components";
+import { Component, C_Transform, C_Player, C_Renderer, C_Engine } from "./components";
+import { C_RigidBody } from "./componentsserver";
 
 export class ComponentManager {
 
