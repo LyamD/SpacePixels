@@ -1,3 +1,8 @@
+/**
+ * Documents contenant les Component basique utile au serveur & client
+ * @packageDocumentation
+ */
+
 export abstract class Component {
     name : string;
 

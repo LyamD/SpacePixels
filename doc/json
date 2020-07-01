@@ -1,0 +1,4848 @@
+{
+	"id": 0,
+	"name": "SpacePixels",
+	"kind": 0,
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 198,
+			"name": "\"GameSocketManager\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/GameSocketManager.ts",
+			"children": [
+				{
+					"id": 199,
+					"name": "GameSocketManager",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 201,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 202,
+									"name": "new GameSocketManager",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 203,
+											"name": "p_game",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 185,
+												"name": "GameManager"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 199,
+										"name": "GameSocketManager"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "GameSocketManager.ts",
+									"line": 8,
+									"character": 23
+								}
+							]
+						},
+						{
+							"id": 200,
+							"name": "game",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "GameSocketManager.ts",
+									"line": 8,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 185,
+								"name": "GameManager"
+							}
+						},
+						{
+							"id": 204,
+							"name": "newPlayer",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 205,
+									"name": "newPlayer",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 206,
+											"name": "socket",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "EngineSocket"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "GameSocketManager.ts",
+									"line": 14,
+									"character": 13
+								}
+							]
+						},
+						{
+							"id": 207,
+							"name": "newPlayerSocket",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 208,
+									"name": "newPlayerSocket",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 209,
+											"name": "socket",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "EngineSocket"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "GameSocketManager.ts",
+									"line": 29,
+									"character": 27
+								}
+							]
+						},
+						{
+							"id": 210,
+							"name": "socketInput",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 211,
+									"name": "socketInput",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 212,
+											"name": "socket",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "EngineSocket"
+											}
+										},
+										{
+											"id": 213,
+											"name": "playerEntity",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 65,
+												"name": "Entity"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "GameSocketManager.ts",
+									"line": 40,
+									"character": 23
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								201
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								200
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								204,
+								207,
+								210
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "GameSocketManager.ts",
+							"line": 6,
+							"character": 30
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						199
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "GameSocketManager.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 47,
+			"name": "\"engine/components/componentmanagerserver\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/components/componentmanagerserver.ts",
+			"children": [
+				{
+					"id": 48,
+					"name": "ComponentManager",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 50,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 51,
+									"name": "new ComponentManager",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 48,
+										"name": "ComponentManager"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/componentmanagerserver.ts",
+									"line": 6,
+									"character": 32
+								}
+							]
+						},
+						{
+							"id": 49,
+							"name": "COMPONENTS",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/componentmanagerserver.ts",
+									"line": 6,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 2,
+										"name": "Component"
+									}
+								],
+								"name": "Array"
+							}
+						},
+						{
+							"id": 52,
+							"name": "addComponents",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 53,
+									"name": "addComponents",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 54,
+											"name": "comp",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/componentmanagerserver.ts",
+									"line": 12,
+									"character": 17
+								}
+							]
+						},
+						{
+							"id": 55,
+							"name": "removeComponent",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 56,
+									"name": "removeComponent",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 57,
+											"name": "comp",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/componentmanagerserver.ts",
+									"line": 16,
+									"character": 19
+								}
+							]
+						},
+						{
+							"id": 58,
+							"name": "createCompFromObject",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 59,
+									"name": "createCompFromObject",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 60,
+											"name": "comp",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "Component"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/componentmanagerserver.ts",
+									"line": 23,
+									"character": 31
+								}
+							]
+						},
+						{
+							"id": 61,
+							"name": "instantiateCompFromString",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 62,
+									"name": "instantiateCompFromString",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 63,
+											"name": "name",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "Component"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/componentmanagerserver.ts",
+									"line": 30,
+									"character": 36
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								50
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								49
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								52,
+								55,
+								58,
+								61
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/componentmanagerserver.ts",
+							"line": 4,
+							"character": 29
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						48
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/components/componentmanagerserver.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "\"engine/components/components\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/components/components.ts",
+			"comment": {
+				"shortText": "Documents contenant les Component basique utile au serveur & client"
+			},
+			"children": [
+				{
+					"id": 34,
+					"name": "C_Engine",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 36,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 37,
+									"name": "new C_Engine",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 38,
+											"name": "p_speed",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 34,
+										"name": "C_Engine"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 4,
+										"name": "Component.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 58,
+									"character": 18
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 4,
+								"name": "Component.__constructor"
+							}
+						},
+						{
+							"id": 39,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 3,
+								"name": "Component.name"
+							}
+						},
+						{
+							"id": 35,
+							"name": "speed",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 58,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								36
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								39,
+								35
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/components.ts",
+							"line": 57,
+							"character": 21
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 2,
+							"name": "Component"
+						}
+					]
+				},
+				{
+					"id": 6,
+					"name": "C_Player",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 14,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 15,
+									"name": "new C_Player",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 16,
+											"name": "p_id",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "\"\""
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 6,
+										"name": "C_Player"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 4,
+										"name": "Component.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 21,
+									"character": 6
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 4,
+								"name": "Component.__constructor"
+							}
+						},
+						{
+							"id": 8,
+							"name": "inputs",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 16,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 9,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"children": [
+										{
+											"id": 11,
+											"name": "MoveDown",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "engine/components/components.ts",
+													"line": 18,
+													"character": 16
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										},
+										{
+											"id": 13,
+											"name": "MoveDroite",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "engine/components/components.ts",
+													"line": 20,
+													"character": 18
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										},
+										{
+											"id": 12,
+											"name": "MoveGauche",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "engine/components/components.ts",
+													"line": 19,
+													"character": 18
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										},
+										{
+											"id": 10,
+											"name": "MoveUp",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "engine/components/components.ts",
+													"line": 17,
+													"character": 14
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"groups": [
+										{
+											"title": "Variables",
+											"kind": 32,
+											"children": [
+												11,
+												13,
+												12,
+												10
+											]
+										}
+									],
+									"sources": [
+										{
+											"fileName": "engine/components/components.ts",
+											"line": 16,
+											"character": 12
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 17,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 3,
+								"name": "Component.name"
+							}
+						},
+						{
+							"id": 7,
+							"name": "socketID",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 15,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								14
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								8,
+								17,
+								7
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/components.ts",
+							"line": 14,
+							"character": 21
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 2,
+							"name": "Component"
+						}
+					]
+				},
+				{
+					"id": 28,
+					"name": "C_Renderer",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 30,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 31,
+									"name": "new C_Renderer",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 32,
+											"name": "p_style",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "\"\""
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 28,
+										"name": "C_Renderer"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 4,
+										"name": "Component.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 49,
+									"character": 18
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 4,
+								"name": "Component.__constructor"
+							}
+						},
+						{
+							"id": 33,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 3,
+								"name": "Component.name"
+							}
+						},
+						{
+							"id": 29,
+							"name": "style",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 49,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								30
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								33,
+								29
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/components.ts",
+							"line": 48,
+							"character": 23
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 2,
+							"name": "Component"
+						}
+					]
+				},
+				{
+					"id": 18,
+					"name": "C_Transform",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 22,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 23,
+									"name": "new C_Transform",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 24,
+											"name": "p_x",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 25,
+											"name": "p_y",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 26,
+											"name": "p_rot",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 18,
+										"name": "C_Transform"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 4,
+										"name": "Component.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 38,
+									"character": 21
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 4,
+								"name": "Component.__constructor"
+							}
+						},
+						{
+							"id": 27,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 3,
+								"name": "Component.name"
+							}
+						},
+						{
+							"id": 21,
+							"name": "rotation",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 38,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 19,
+							"name": "x",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 36,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 20,
+							"name": "y",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 37,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								22
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								27,
+								21,
+								19,
+								20
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/components.ts",
+							"line": 35,
+							"character": 24
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 2,
+							"name": "Component"
+						}
+					]
+				},
+				{
+					"id": 2,
+					"name": "Component",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true,
+						"isAbstract": true
+					},
+					"children": [
+						{
+							"id": 4,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 5,
+									"name": "new Component",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "Component"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 18
+								}
+							]
+						},
+						{
+							"id": 3,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								4
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								3
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/components.ts",
+							"line": 6,
+							"character": 31
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"id": 6,
+							"name": "C_Player"
+						},
+						{
+							"type": "reference",
+							"id": 18,
+							"name": "C_Transform"
+						},
+						{
+							"type": "reference",
+							"id": 28,
+							"name": "C_Renderer"
+						},
+						{
+							"type": "reference",
+							"id": 34,
+							"name": "C_Engine"
+						},
+						{
+							"type": "reference",
+							"id": 41,
+							"name": "C_RigidBody"
+						},
+						{
+							"type": "reference",
+							"id": 215,
+							"name": "C_RigidBody"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						34,
+						6,
+						28,
+						18,
+						2
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/components/components.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 214,
+			"name": "\"engine/components/componentsclient\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/components/componentsclient.ts",
+			"children": [
+				{
+					"id": 215,
+					"name": "C_RigidBody",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 219,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 220,
+									"name": "new C_RigidBody",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 215,
+										"name": "C_RigidBody"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 4,
+										"name": "Component.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 18
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 4,
+								"name": "Component.__constructor"
+							}
+						},
+						{
+							"id": 217,
+							"name": "BodyID",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/componentsclient.ts",
+									"line": 5,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 218,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 3,
+								"name": "Component.name"
+							}
+						},
+						{
+							"id": 216,
+							"name": "weight",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/componentsclient.ts",
+									"line": 4,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								219
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								217,
+								218,
+								216
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/componentsclient.ts",
+							"line": 3,
+							"character": 24
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 2,
+							"name": "Component"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						215
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/components/componentsclient.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 40,
+			"name": "\"engine/components/componentsserver\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/components/componentsserver.ts",
+			"children": [
+				{
+					"id": 41,
+					"name": "C_RigidBody",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 44,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 45,
+									"name": "new C_RigidBody",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 41,
+										"name": "C_RigidBody"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 4,
+										"name": "Component.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/componentsserver.ts",
+									"line": 8,
+									"character": 20
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 4,
+								"name": "Component.__constructor"
+							}
+						},
+						{
+							"id": 43,
+							"name": "BodyID",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/componentsserver.ts",
+									"line": 8,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 46,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/components.ts",
+									"line": 7,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 3,
+								"name": "Component.name"
+							}
+						},
+						{
+							"id": 42,
+							"name": "weight",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/componentsserver.ts",
+									"line": 7,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								44
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								43,
+								46,
+								42
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/componentsserver.ts",
+							"line": 5,
+							"character": 24
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 2,
+							"name": "Component"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						41
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/components/componentsserver.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 64,
+			"name": "\"engine/components/entity\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/components/entity.ts",
+			"children": [
+				{
+					"id": 65,
+					"name": "Entity",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 68,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 69,
+									"name": "new Entity",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 70,
+											"name": "p_components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true,
+												"isOptional": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 65,
+										"name": "Entity"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/components/entity.ts",
+									"line": 7,
+									"character": 35
+								}
+							]
+						},
+						{
+							"id": 67,
+							"name": "components",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/entity.ts",
+									"line": 7,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 2,
+										"name": "Component"
+									}
+								],
+								"name": "Array"
+							}
+						},
+						{
+							"id": 66,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/components/entity.ts",
+									"line": 6,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								68
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								67,
+								66
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/components/entity.ts",
+							"line": 5,
+							"character": 19
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						65
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/components/entity.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 184,
+			"name": "\"engine/gamemanager\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/gamemanager.ts",
+			"children": [
+				{
+					"id": 185,
+					"name": "GameManager",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 190,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 191,
+									"name": "new GameManager",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 185,
+										"name": "GameManager"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/gamemanager.ts",
+									"line": 27,
+									"character": 25
+								}
+							]
+						},
+						{
+							"id": 187,
+							"name": "SPWORLD",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/gamemanager.ts",
+									"line": 23,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 72,
+								"name": "SPWorld"
+							}
+						},
+						{
+							"id": 188,
+							"name": "SystemManager",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/gamemanager.ts",
+									"line": 25,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 111,
+								"name": "SystemManager"
+							}
+						},
+						{
+							"id": 189,
+							"name": "io",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/gamemanager.ts",
+									"line": 27,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "socketio.Server"
+							}
+						},
+						{
+							"id": 186,
+							"name": "matterEngine",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/gamemanager.ts",
+									"line": 21,
+									"character": 16
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "matterjs.Engine"
+							}
+						},
+						{
+							"id": 192,
+							"name": "launch",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 193,
+									"name": "launch",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/gamemanager.ts",
+									"line": 39,
+									"character": 10
+								}
+							]
+						},
+						{
+							"id": 194,
+							"name": "setup",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 195,
+									"name": "setup",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/gamemanager.ts",
+									"line": 68,
+									"character": 17
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								190
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								187,
+								188,
+								189,
+								186
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								192,
+								194
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/gamemanager.ts",
+							"line": 18,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 196,
+					"name": "Engine",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "engine/gamemanager.ts",
+							"line": 3,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				},
+				{
+					"id": 197,
+					"name": "MATTER_JS_BODIES",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "engine/gamemanager.ts",
+							"line": 15,
+							"character": 29
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"name": "Body"
+						}
+					},
+					"defaultValue": "new Array<matterjs.Body>()"
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						185
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						196,
+						197
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/gamemanager.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 91,
+			"name": "\"engine/systems/systemmanager\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/systems/systemmanager.ts",
+			"children": [
+				{
+					"id": 92,
+					"name": "System",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true,
+						"isAbstract": true
+					},
+					"children": [
+						{
+							"id": 94,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 95,
+									"name": "new System",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 96,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 92,
+										"name": "System"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 34
+								}
+							]
+						},
+						{
+							"id": 93,
+							"name": "compRequired",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								],
+								"name": "Array"
+							}
+						},
+						{
+							"id": 107,
+							"name": "run",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true,
+								"isAbstract": true
+							},
+							"signatures": [
+								{
+									"id": 108,
+									"name": "run",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 109,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 110,
+											"name": "entityID",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 67,
+									"character": 17
+								}
+							]
+						},
+						{
+							"id": 97,
+							"name": "runEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 98,
+									"name": "runEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 99,
+											"name": "entities",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 65,
+														"name": "Entity"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 100,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 18,
+									"character": 16
+								}
+							]
+						},
+						{
+							"id": 104,
+							"name": "verifyComps",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 105,
+									"name": "verifyComps",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 106,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 62,
+									"character": 24
+								}
+							]
+						},
+						{
+							"id": 101,
+							"name": "mapEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 102,
+									"name": "mapEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 103,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										],
+										"name": "Array"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 54,
+									"character": 23
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								94
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								93
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								107,
+								97,
+								104,
+								101
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/systems/systemmanager.ts",
+							"line": 8,
+							"character": 28
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"id": 136,
+							"name": "S_Propulsion"
+						},
+						{
+							"type": "reference",
+							"id": 152,
+							"name": "S_PlayerInputs"
+						},
+						{
+							"type": "reference",
+							"id": 168,
+							"name": "S_RigidBody"
+						}
+					]
+				},
+				{
+					"id": 111,
+					"name": "SystemManager",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 116,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 117,
+									"name": "new SystemManager",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 118,
+											"name": "p_CompManager",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 48,
+												"name": "ComponentManager"
+											}
+										},
+										{
+											"id": 119,
+											"name": "p_entities",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 65,
+														"name": "Entity"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 111,
+										"name": "SystemManager"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 76,
+									"character": 41
+								}
+							]
+						},
+						{
+							"id": 113,
+							"name": "CompManager",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 74,
+									"character": 16
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 48,
+								"name": "ComponentManager"
+							}
+						},
+						{
+							"id": 112,
+							"name": "SYSTEMS",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 73,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 92,
+										"name": "System"
+									}
+								],
+								"name": "Array"
+							}
+						},
+						{
+							"id": 114,
+							"name": "entities",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 75,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 65,
+										"name": "Entity"
+									}
+								],
+								"name": "Array"
+							}
+						},
+						{
+							"id": 115,
+							"name": "systemsIndex",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 76,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 126,
+								"name": "SystemsIndexForOrder"
+							}
+						},
+						{
+							"id": 120,
+							"name": "addSystem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 121,
+									"name": "addSystem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 122,
+											"name": "sys",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 92,
+												"name": "System"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 86,
+									"character": 14
+								}
+							]
+						},
+						{
+							"id": 123,
+							"name": "runSystems",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 124,
+									"name": "runSystems",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 125,
+											"name": "order",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 94,
+									"character": 15
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								116
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								113,
+								112,
+								114,
+								115
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								120,
+								123
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/systems/systemmanager.ts",
+							"line": 72,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 126,
+					"name": "SystemsIndexForOrder",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"indexSignature": [
+						{
+							"id": 127,
+							"name": "__index",
+							"kind": 8192,
+							"kindString": "Index signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 128,
+									"name": "key",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/systems/systemmanager.ts",
+							"line": 108,
+							"character": 33
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						92,
+						111,
+						126
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/systems/systemmanager.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 135,
+			"name": "\"engine/systems/systems\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/systems/systems.ts",
+			"children": [
+				{
+					"id": 152,
+					"name": "S_PlayerInputs",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 158,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 159,
+									"name": "new S_PlayerInputs",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 160,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 152,
+										"name": "S_PlayerInputs"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 94,
+										"name": "System.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 34
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 94,
+								"name": "System.__constructor"
+							}
+						},
+						{
+							"id": 157,
+							"name": "compRequired",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								],
+								"name": "Array"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 93,
+								"name": "System.compRequired"
+							}
+						},
+						{
+							"id": 153,
+							"name": "run",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 154,
+									"name": "run",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 155,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 156,
+											"name": "entityID",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 107,
+										"name": "System.run"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systems.ts",
+									"line": 17,
+									"character": 7
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 107,
+								"name": "System.run"
+							}
+						},
+						{
+							"id": 161,
+							"name": "runEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 162,
+									"name": "runEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 163,
+											"name": "entities",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 65,
+														"name": "Entity"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 164,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 97,
+										"name": "System.runEntities"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 18,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 97,
+								"name": "System.runEntities"
+							}
+						},
+						{
+							"id": 165,
+							"name": "mapEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 166,
+									"name": "mapEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 167,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										],
+										"name": "Array"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 101,
+										"name": "System.mapEntities"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 54,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 101,
+								"name": "System.mapEntities"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								158
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								157
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								153,
+								161,
+								165
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/systems/systems.ts",
+							"line": 15,
+							"character": 27
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 92,
+							"name": "System"
+						}
+					]
+				},
+				{
+					"id": 136,
+					"name": "S_Propulsion",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 142,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 143,
+									"name": "new S_Propulsion",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 144,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 136,
+										"name": "S_Propulsion"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 94,
+										"name": "System.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 34
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 94,
+								"name": "System.__constructor"
+							}
+						},
+						{
+							"id": 141,
+							"name": "compRequired",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								],
+								"name": "Array"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 93,
+								"name": "System.compRequired"
+							}
+						},
+						{
+							"id": 137,
+							"name": "run",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 138,
+									"name": "run",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 139,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 140,
+											"name": "entityID",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 107,
+										"name": "System.run"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systems.ts",
+									"line": 7,
+									"character": 7
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 107,
+								"name": "System.run"
+							}
+						},
+						{
+							"id": 145,
+							"name": "runEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 146,
+									"name": "runEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 147,
+											"name": "entities",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 65,
+														"name": "Entity"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 148,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 97,
+										"name": "System.runEntities"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 18,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 97,
+								"name": "System.runEntities"
+							}
+						},
+						{
+							"id": 149,
+							"name": "mapEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 150,
+									"name": "mapEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 151,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										],
+										"name": "Array"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 101,
+										"name": "System.mapEntities"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 54,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 101,
+								"name": "System.mapEntities"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								142
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								141
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								137,
+								145,
+								149
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/systems/systems.ts",
+							"line": 5,
+							"character": 25
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 92,
+							"name": "System"
+						}
+					]
+				},
+				{
+					"id": 168,
+					"name": "S_RigidBody",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 174,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 175,
+									"name": "new S_RigidBody",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 176,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 168,
+										"name": "S_RigidBody"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 94,
+										"name": "System.__constructor"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 34
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 94,
+								"name": "System.__constructor"
+							}
+						},
+						{
+							"id": 173,
+							"name": "compRequired",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 11,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								],
+								"name": "Array"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 93,
+								"name": "System.compRequired"
+							}
+						},
+						{
+							"id": 169,
+							"name": "run",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 170,
+									"name": "run",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 171,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 172,
+											"name": "entityID",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"overwrites": {
+										"type": "reference",
+										"id": 107,
+										"name": "System.run"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systems.ts",
+									"line": 41,
+									"character": 7
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"id": 107,
+								"name": "System.run"
+							}
+						},
+						{
+							"id": 177,
+							"name": "runEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 178,
+									"name": "runEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 179,
+											"name": "entities",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 65,
+														"name": "Entity"
+													}
+												],
+												"name": "Array"
+											}
+										},
+										{
+											"id": 180,
+											"name": "components",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 97,
+										"name": "System.runEntities"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 18,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 97,
+								"name": "System.runEntities"
+							}
+						},
+						{
+							"id": 181,
+							"name": "mapEntities",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 182,
+									"name": "mapEntities",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 183,
+											"name": "entityComponents",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 2,
+														"name": "Component"
+													}
+												],
+												"name": "Array"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										],
+										"name": "Array"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 101,
+										"name": "System.mapEntities"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/systems/systemmanager.ts",
+									"line": 54,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 101,
+								"name": "System.mapEntities"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								174
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								173
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								169,
+								177,
+								181
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/systems/systems.ts",
+							"line": 39,
+							"character": 24
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 92,
+							"name": "System"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						152,
+						136,
+						168
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/systems/systems.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 71,
+			"name": "\"engine/world\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/world.ts",
+			"children": [
+				{
+					"id": 72,
+					"name": "SPWorld",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 75,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 76,
+									"name": "new SPWorld",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 72,
+										"name": "SPWorld"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/world.ts",
+									"line": 9,
+									"character": 40
+								}
+							]
+						},
+						{
+							"id": 73,
+							"name": "ENTITIES",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/world.ts",
+									"line": 8,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 65,
+										"name": "Entity"
+									}
+								],
+								"name": "Array"
+							}
+						},
+						{
+							"id": 74,
+							"name": "componentManager",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "engine/world.ts",
+									"line": 9,
+									"character": 20
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 48,
+								"name": "ComponentManager"
+							}
+						},
+						{
+							"id": 83,
+							"name": "addComponentToEntity",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 84,
+									"name": "addComponentToEntity",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 85,
+											"name": "p_entity",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 65,
+														"name": "Entity"
+													},
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												]
+											}
+										},
+										{
+											"id": 86,
+											"name": "p_component",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 2,
+												"name": "Component"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/world.ts",
+									"line": 46,
+									"character": 24
+								}
+							]
+						},
+						{
+							"id": 77,
+							"name": "addEntity",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 78,
+									"name": "addEntity",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 79,
+											"name": "entity",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"id": 65,
+												"name": "Entity"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/world.ts",
+									"line": 18,
+									"character": 13
+								}
+							]
+						},
+						{
+							"id": 87,
+							"name": "getComponentFromEntity",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 88,
+									"name": "getComponentFromEntity",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 89,
+											"name": "p_entity",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"id": 65,
+														"name": "Entity"
+													},
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												]
+											}
+										},
+										{
+											"id": 90,
+											"name": "p_component",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/world.ts",
+									"line": 73,
+									"character": 26
+								}
+							]
+						},
+						{
+							"id": 80,
+							"name": "getEntityFromID",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 81,
+									"name": "getEntityFromID",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 82,
+											"name": "p_id",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 65,
+										"name": "Entity"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "engine/world.ts",
+									"line": 31,
+									"character": 19
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								75
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								73,
+								74
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								83,
+								77,
+								87,
+								80
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "engine/world.ts",
+							"line": 5,
+							"character": 20
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						72
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "engine/world.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 129,
+			"name": "\"main\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "c:/wamp64/www/SpacePixels/src/server/main.ts",
+			"children": [
+				{
+					"id": 133,
+					"name": "GameManager",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "main.ts",
+							"line": 19,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 185,
+						"name": "GameManager"
+					},
+					"defaultValue": "new game.GameManager()"
+				},
+				{
+					"id": 132,
+					"name": "ServerIO",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "main.ts",
+							"line": 12,
+							"character": 21
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					},
+					"defaultValue": "require('socket.io')(http)"
+				},
+				{
+					"id": 130,
+					"name": "app",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "main.ts",
+							"line": 10,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Express"
+					},
+					"defaultValue": "express()"
+				},
+				{
+					"id": 131,
+					"name": "http",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isLet": true
+					},
+					"sources": [
+						{
+							"fileName": "main.ts",
+							"line": 11,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					},
+					"defaultValue": "require('http').createServer(app)"
+				},
+				{
+					"id": 134,
+					"name": "socketManager",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "main.ts",
+							"line": 21,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 199,
+						"name": "GameSocketManager"
+					},
+					"defaultValue": "new GameSocketManager(GameManager)"
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						133,
+						132,
+						130,
+						131,
+						134
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "main.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"kind": 1,
+			"children": [
+				198,
+				47,
+				1,
+				214,
+				40,
+				64,
+				184,
+				91,
+				135,
+				71,
+				129
+			]
+		}
+	]
+}

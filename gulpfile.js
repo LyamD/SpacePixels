@@ -12,6 +12,21 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var tsify = require('tsify');
 
+var typedoc = require('gulp-typedoc');
+
+function processTypedoc() {
+
+    return src('src/server/**/*.ts')
+        .pipe(typedoc({
+            module: "commonjs",
+            target: "es5", 
+            
+            out: './doc',
+            json: './doc/json'
+
+        }));
+}
+
 
 // Node
 
@@ -91,6 +106,7 @@ exports.dev = function() {
 exports.build = parallel(parallel(typescriptClient, typescriptServer), html);
 exports.html = html;
 exports.exportComponents = exportComponents;
+exports.typedocServer = processTypedoc;
 
 process.on('exit', function() {
     if (node) node.kill()

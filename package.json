@@ -19,8 +19,10 @@
     "browserify": "^16.5.1",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
+    "gulp-typedoc": "^2.2.5",
     "gulp-typescript": "^6.0.0-alpha.1",
     "tsify": "^4.0.2",
+    "typedoc": "^0.17.8",
     "typescript": "^3.9.5",
     "vinyl-source-stream": "^2.0.0"
   },
