@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Monde (World) de Space pixels, contenant toutes les entités et leur composants</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -118,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/world.ts:9</li>
+									<li>Defined in engine/world.ts:18</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_engine_world_.spworld.html" class="tsd-signature-type">SPWorld</a></h4>
@@ -134,9 +141,14 @@
 					<div class="tsd-signature tsd-kind-icon">ENTITIES<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_engine_components_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in engine/world.ts:8</li>
+							<li>Defined in engine/world.ts:16</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Contient toutes les entités de ce monde</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="componentmanager" class="tsd-anchor"></a>
@@ -144,9 +156,14 @@
 					<div class="tsd-signature tsd-kind-icon">component<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="_engine_components_componentmanagerserver_.componentmanager.html" class="tsd-signature-type">ComponentManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in engine/world.ts:9</li>
+							<li>Defined in engine/world.ts:18</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Référence vers le Component Manager, voir <a href="_engine_components_componentmanagerserver_.componentmanager.html">ComponentManager</a></p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -161,16 +178,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/world.ts:46</li>
+									<li>Defined in engine/world.ts:62</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Ajoute un component à une entité et à la liste des components</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p_entity: <a href="_engine_components_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>l&#39;entité qui recoit le Component</p>
+									</div>
 								</li>
 								<li>
 									<h5>p_component: <a href="_engine_components_components_.component.html" class="tsd-signature-type">Component</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Le Component à ajouter</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -187,13 +215,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/world.ts:18</li>
+									<li>Defined in engine/world.ts:30</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Ajoute une entité a la liste des entités et ses components à la liste des components.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>entity: <a href="_engine_components_entity_.entity.html" class="tsd-signature-type">Entity</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>l&#39;entité à ajouter</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -210,16 +246,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/world.ts:73</li>
+									<li>Defined in engine/world.ts:88</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Renvoie le component d&#39;une entité</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p_entity: <a href="_engine_components_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>l&#39;entité ou son id</p>
+									</div>
 								</li>
 								<li>
 									<h5>p_component: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>le nom du component désiré</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -236,13 +283,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/world.ts:31</li>
+									<li>Defined in engine/world.ts:47</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Renvoie une entité</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p_id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>l&#39;id de l&#39;entité</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_engine_components_entity_.entity.html" class="tsd-signature-type">Entity</a></h4>

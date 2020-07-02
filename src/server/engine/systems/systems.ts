@@ -8,7 +8,7 @@ export class S_Propulsion extends System {
         let Components = System.mapEntities(entityComponents);
         let transform : C_Transform = Components['C_Transform'];
         let propulsion : C_Engine = Components['C_Engine'];
-        transform.x = transform.x + propulsion.speed;
+        transform.x = transform.x + propulsion.power;
     }
 }
 

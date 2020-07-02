@@ -23,6 +23,9 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "Réceptionne les données envoyée par les clients et les transmet au jeu"
+					},
 					"children": [
 						{
 							"id": 201,
@@ -32,6 +35,7 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {},
 							"signatures": [
 								{
 									"id": 202,
@@ -41,6 +45,7 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 203,
@@ -49,6 +54,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"shortText": "une réf vers le GameManager"
 											},
 											"type": {
 												"type": "reference",
@@ -67,8 +75,61 @@
 							"sources": [
 								{
 									"fileName": "GameSocketManager.ts",
-									"line": 8,
+									"line": 17,
 									"character": 23
+								}
+							]
+						},
+						{
+							"id": 207,
+							"name": "newPlayerSocket",
+							"kind": 8388608,
+							"kindString": "Event",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 208,
+									"name": "newPlayerSocket",
+									"kind": 8388608,
+									"kindString": "Event",
+									"flags": {
+										"isExported": true
+									},
+									"comment": {
+										"shortText": "Ajoute tout les event de reception socket.io pour ce socket joueur"
+									},
+									"parameters": [
+										{
+											"id": 209,
+											"name": "socket",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"comment": {
+												"text": "le socket du client auquel on veut créer une entité"
+											},
+											"type": {
+												"type": "reference",
+												"name": "EngineSocket"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "GameSocketManager.ts",
+									"line": 48,
+									"character": 27
 								}
 							]
 						},
@@ -80,10 +141,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Référence vers le jeu\nVoir {@link GameManager}"
+							},
 							"sources": [
 								{
 									"fileName": "GameSocketManager.ts",
-									"line": 8,
+									"line": 17,
 									"character": 8
 								}
 							],
@@ -110,6 +174,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Créer et ajoute une nouvelle entité Joueur"
+									},
 									"parameters": [
 										{
 											"id": 206,
@@ -119,52 +186,8 @@
 											"flags": {
 												"isExported": true
 											},
-											"type": {
-												"type": "reference",
-												"name": "EngineSocket"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "GameSocketManager.ts",
-									"line": 14,
-									"character": 13
-								}
-							]
-						},
-						{
-							"id": 207,
-							"name": "newPlayerSocket",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isPrivate": true,
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 208,
-									"name": "newPlayerSocket",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {
-										"isExported": true
-									},
-									"parameters": [
-										{
-											"id": 209,
-											"name": "socket",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {
-												"isExported": true
+											"comment": {
+												"text": "le socket du client auquel on veut créer une entité\n"
 											},
 											"type": {
 												"type": "reference",
@@ -181,8 +204,8 @@
 							"sources": [
 								{
 									"fileName": "GameSocketManager.ts",
-									"line": 29,
-									"character": 27
+									"line": 28,
+									"character": 13
 								}
 							]
 						},
@@ -204,6 +227,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Ajoute les event socket IO en rapport avec les inputs joueurs"
+									},
 									"parameters": [
 										{
 											"id": 212,
@@ -212,6 +238,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "le socket du joueur"
 											},
 											"type": {
 												"type": "reference",
@@ -225,6 +254,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "l'entité lié au socket du joueur;\n"
 											},
 											"type": {
 												"type": "reference",
@@ -242,7 +274,7 @@
 							"sources": [
 								{
 									"fileName": "GameSocketManager.ts",
-									"line": 40,
+									"line": 64,
 									"character": 23
 								}
 							]
@@ -257,6 +289,13 @@
 							]
 						},
 						{
+							"title": "Events",
+							"kind": 8388608,
+							"children": [
+								207
+							]
+						},
+						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
@@ -268,7 +307,6 @@
 							"kind": 2048,
 							"children": [
 								204,
-								207,
 								210
 							]
 						}
@@ -276,7 +314,7 @@
 					"sources": [
 						{
 							"fileName": "GameSocketManager.ts",
-							"line": 6,
+							"line": 10,
 							"character": 30
 						}
 					]
@@ -317,6 +355,9 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "S'occupe de référencer tout les components pour faciliter le travail de {@link SystemManager}"
+					},
 					"children": [
 						{
 							"id": 50,
@@ -345,7 +386,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentmanagerserver.ts",
-									"line": 6,
+									"line": 15,
 									"character": 32
 								}
 							]
@@ -358,10 +399,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "La liste de tout les components"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/componentmanagerserver.ts",
-									"line": 6,
+									"line": 15,
 									"character": 14
 								}
 							],
@@ -394,6 +438,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Ajoute un Component"
+									},
 									"parameters": [
 										{
 											"id": 54,
@@ -419,7 +466,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentmanagerserver.ts",
-									"line": 12,
+									"line": 22,
 									"character": 17
 								}
 							]
@@ -441,6 +488,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Enlève la référence vers un component"
+									},
 									"parameters": [
 										{
 											"id": 57,
@@ -449,6 +499,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "le component à supprimer\n"
 											},
 											"type": {
 												"type": "reference",
@@ -466,7 +519,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentmanagerserver.ts",
-									"line": 16,
+									"line": 30,
 									"character": 19
 								}
 							]
@@ -489,6 +542,10 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Instancie un objet Component à partir des données seulement",
+										"returns": "la descendance de Component instancié\n"
+									},
 									"parameters": [
 										{
 											"id": 60,
@@ -497,6 +554,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "les données du composant à initialiser"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -514,7 +574,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentmanagerserver.ts",
-									"line": 23,
+									"line": 42,
 									"character": 31
 								}
 							]
@@ -537,6 +597,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Instancie un Component à partir de son nom de Classe"
+									},
 									"parameters": [
 										{
 											"id": 63,
@@ -545,6 +608,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "le nom de classe du Component\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -562,7 +628,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentmanagerserver.ts",
-									"line": 30,
+									"line": 53,
 									"character": 36
 								}
 							]
@@ -597,7 +663,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/componentmanagerserver.ts",
-							"line": 4,
+							"line": 12,
 							"character": 29
 						}
 					]
@@ -630,7 +696,7 @@
 			},
 			"originalName": "c:/wamp64/www/SpacePixels/src/server/engine/components/components.ts",
 			"comment": {
-				"shortText": "Documents contenant les Component basique utile au serveur & client"
+				"shortText": "Fichier contenant les Components basique utile au serveur & client"
 			},
 			"children": [
 				{
@@ -641,6 +707,15 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "Component déterminant si dispose d'un générateur",
+						"tags": [
+							{
+								"tag": "property",
+								"text": "{number} power la puissance totale du générateur\n"
+							}
+						]
+					},
 					"children": [
 						{
 							"id": 36,
@@ -649,6 +724,9 @@
 							"kindString": "Constructor",
 							"flags": {
 								"isExported": true
+							},
+							"comment": {
+								"shortText": "Component déterminant si dispose d'un générateur"
 							},
 							"signatures": [
 								{
@@ -659,10 +737,13 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Component déterminant si dispose d'un générateur"
+									},
 									"parameters": [
 										{
 											"id": 38,
-											"name": "p_speed",
+											"name": "p_power",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
@@ -690,7 +771,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 58,
+									"line": 97,
 									"character": 18
 								}
 							],
@@ -708,10 +789,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Nom du component (égale au nom de la classe, générer automatiquement)"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -727,16 +811,19 @@
 						},
 						{
 							"id": 35,
-							"name": "speed",
+							"name": "power",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "La puissance maximum du générateur"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 58,
+									"line": 97,
 									"character": 9
 								}
 							],
@@ -766,7 +853,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/components.ts",
-							"line": 57,
+							"line": 95,
 							"character": 21
 						}
 					],
@@ -785,6 +872,15 @@
 					"kindString": "Class",
 					"flags": {
 						"isExported": true
+					},
+					"comment": {
+						"shortText": "La classe déterminant qu'un entité est controlé par un joueur\nS'occupe aussi des inputs",
+						"tags": [
+							{
+								"tag": "property",
+								"text": "{string} socketID l'id du socket associé à ce joueur / component\n"
+							}
+						]
 					},
 					"children": [
 						{
@@ -835,7 +931,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 21,
+									"line": 31,
 									"character": 6
 								}
 							],
@@ -856,7 +952,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 16,
+									"line": 26,
 									"character": 10
 								}
 							],
@@ -882,13 +978,13 @@
 											"sources": [
 												{
 													"fileName": "engine/components/components.ts",
-													"line": 18,
+													"line": 28,
 													"character": 16
 												}
 											],
 											"type": {
 												"type": "intrinsic",
-												"name": "any"
+												"name": "boolean"
 											}
 										},
 										{
@@ -902,13 +998,13 @@
 											"sources": [
 												{
 													"fileName": "engine/components/components.ts",
-													"line": 20,
+													"line": 30,
 													"character": 18
 												}
 											],
 											"type": {
 												"type": "intrinsic",
-												"name": "any"
+												"name": "boolean"
 											}
 										},
 										{
@@ -922,13 +1018,13 @@
 											"sources": [
 												{
 													"fileName": "engine/components/components.ts",
-													"line": 19,
+													"line": 29,
 													"character": 18
 												}
 											],
 											"type": {
 												"type": "intrinsic",
-												"name": "any"
+												"name": "boolean"
 											}
 										},
 										{
@@ -942,13 +1038,13 @@
 											"sources": [
 												{
 													"fileName": "engine/components/components.ts",
-													"line": 17,
+													"line": 27,
 													"character": 14
 												}
 											],
 											"type": {
 												"type": "intrinsic",
-												"name": "any"
+												"name": "boolean"
 											}
 										}
 									],
@@ -967,7 +1063,7 @@
 									"sources": [
 										{
 											"fileName": "engine/components/components.ts",
-											"line": 16,
+											"line": 26,
 											"character": 12
 										}
 									]
@@ -982,10 +1078,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Nom du component (égale au nom de la classe, générer automatiquement)"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -1010,7 +1109,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 15,
+									"line": 25,
 									"character": 12
 								}
 							],
@@ -1041,7 +1140,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/components.ts",
-							"line": 14,
+							"line": 24,
 							"character": 21
 						}
 					],
@@ -1061,6 +1160,15 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "Component déterminant si une entité doit être rendu coté client",
+						"tags": [
+							{
+								"tag": "property",
+								"text": "{string} style nom de l'apparence que doit avoir l'entité\n"
+							}
+						]
+					},
 					"children": [
 						{
 							"id": 30,
@@ -1070,6 +1178,9 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Component déterminant si une entité doit être rendu coté client"
+							},
 							"signatures": [
 								{
 									"id": 31,
@@ -1078,6 +1189,9 @@
 									"kindString": "Constructor signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Component déterminant si une entité doit être rendu coté client"
 									},
 									"parameters": [
 										{
@@ -1110,7 +1224,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 49,
+									"line": 79,
 									"character": 18
 								}
 							],
@@ -1128,10 +1242,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Nom du component (égale au nom de la classe, générer automatiquement)"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -1153,10 +1270,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Apparence que doit avoir l'entité"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 49,
+									"line": 79,
 									"character": 9
 								}
 							],
@@ -1186,7 +1306,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/components.ts",
-							"line": 48,
+							"line": 77,
 							"character": 23
 						}
 					],
@@ -1206,6 +1326,23 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "Component déterminant qu'une entité est présente dans le mode",
+						"tags": [
+							{
+								"tag": "property",
+								"text": "{number} x la position de l'entité sur l'axe X"
+							},
+							{
+								"tag": "property",
+								"text": "{number} y la position de l'entité sur l'axe Y"
+							},
+							{
+								"tag": "property",
+								"text": "{number} rotation la rotation de l'entité en Radians\n"
+							}
+						]
+					},
 					"children": [
 						{
 							"id": 22,
@@ -1215,6 +1352,9 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Component déterminant qu'une entité est présente dans le mode"
+							},
 							"signatures": [
 								{
 									"id": 23,
@@ -1223,6 +1363,9 @@
 									"kindString": "Constructor signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Component déterminant qu'une entité est présente dans le mode"
 									},
 									"parameters": [
 										{
@@ -1283,7 +1426,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 38,
+									"line": 57,
 									"character": 21
 								}
 							],
@@ -1301,10 +1444,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Nom du component (égale au nom de la classe, générer automatiquement)"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -1326,10 +1472,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "la rotation de l'entité en Radians"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 38,
+									"line": 57,
 									"character": 12
 								}
 							],
@@ -1346,10 +1495,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "la position de l'entité sur l'axe X"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 36,
+									"line": 53,
 									"character": 5
 								}
 							],
@@ -1366,10 +1518,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "la position de l'entité sur l'axe Y"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 37,
+									"line": 55,
 									"character": 5
 								}
 							],
@@ -1401,7 +1556,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/components.ts",
-							"line": 35,
+							"line": 51,
 							"character": 24
 						}
 					],
@@ -1421,6 +1576,15 @@
 					"flags": {
 						"isExported": true,
 						"isAbstract": true
+					},
+					"comment": {
+						"shortText": "Classe Abstraite template de base pour les components",
+						"tags": [
+							{
+								"tag": "property",
+								"text": "{string} name le nom du component générée à l'instanciation\n"
+							}
+						]
 					},
 					"children": [
 						{
@@ -1450,7 +1614,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 18
 								}
 							]
@@ -1463,10 +1627,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Nom du component (égale au nom de la classe, générer automatiquement)"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -1495,7 +1662,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/components.ts",
-							"line": 6,
+							"line": 10,
 							"character": 31
 						}
 					],
@@ -1572,6 +1739,9 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "Détermine si l'entité réagit avec le monde (collision, etc...)"
+					},
 					"children": [
 						{
 							"id": 219,
@@ -1605,7 +1775,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 18
 								}
 							],
@@ -1626,7 +1796,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentsclient.ts",
-									"line": 5,
+									"line": 15,
 									"character": 10
 								}
 							],
@@ -1643,10 +1813,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Nom du component (égale au nom de la classe, générer automatiquement)"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -1671,7 +1844,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentsclient.ts",
-									"line": 4,
+									"line": 14,
 									"character": 10
 								}
 							],
@@ -1702,7 +1875,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/componentsclient.ts",
-							"line": 3,
+							"line": 13,
 							"character": 24
 						}
 					],
@@ -1783,7 +1956,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentsserver.ts",
-									"line": 8,
+									"line": 11,
 									"character": 20
 								}
 							],
@@ -1804,7 +1977,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentsserver.ts",
-									"line": 8,
+									"line": 11,
 									"character": 10
 								}
 							],
@@ -1821,10 +1994,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Nom du component (égale au nom de la classe, générer automatiquement)"
+							},
 							"sources": [
 								{
 									"fileName": "engine/components/components.ts",
-									"line": 7,
+									"line": 12,
 									"character": 8
 								}
 							],
@@ -1849,7 +2025,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/componentsserver.ts",
-									"line": 7,
+									"line": 10,
 									"character": 10
 								}
 							],
@@ -1880,7 +2056,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/componentsserver.ts",
-							"line": 5,
+							"line": 8,
 							"character": 24
 						}
 					],
@@ -1927,6 +2103,9 @@
 					"kindString": "Class",
 					"flags": {
 						"isExported": true
+					},
+					"comment": {
+						"shortText": "Une entité, base de tout le système"
 					},
 					"children": [
 						{
@@ -1979,7 +2158,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/entity.ts",
-									"line": 7,
+									"line": 9,
 									"character": 35
 								}
 							]
@@ -1996,7 +2175,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/entity.ts",
-									"line": 7,
+									"line": 9,
 									"character": 14
 								}
 							],
@@ -2023,7 +2202,7 @@
 							"sources": [
 								{
 									"fileName": "engine/components/entity.ts",
-									"line": 6,
+									"line": 8,
 									"character": 6
 								}
 							],
@@ -2053,7 +2232,7 @@
 					"sources": [
 						{
 							"fileName": "engine/components/entity.ts",
-							"line": 5,
+							"line": 7,
 							"character": 19
 						}
 					]
@@ -2103,6 +2282,9 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Instancie les propriétes de notre World"
+							},
 							"signatures": [
 								{
 									"id": 191,
@@ -2111,6 +2293,9 @@
 									"kindString": "Constructor signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Instancie les propriétes de notre World"
 									},
 									"type": {
 										"type": "reference",
@@ -2122,7 +2307,7 @@
 							"sources": [
 								{
 									"fileName": "engine/gamemanager.ts",
-									"line": 27,
+									"line": 28,
 									"character": 25
 								}
 							]
@@ -2135,10 +2320,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Notre monde qui contient les entitées"
+							},
 							"sources": [
 								{
 									"fileName": "engine/gamemanager.ts",
-									"line": 23,
+									"line": 24,
 									"character": 11
 								}
 							],
@@ -2156,10 +2344,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Notre {@link SystemManager}"
+							},
 							"sources": [
 								{
 									"fileName": "engine/gamemanager.ts",
-									"line": 25,
+									"line": 26,
 									"character": 17
 								}
 							],
@@ -2177,10 +2368,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "le serveur SocketIO"
+							},
 							"sources": [
 								{
 									"fileName": "engine/gamemanager.ts",
-									"line": 27,
+									"line": 28,
 									"character": 6
 								}
 							],
@@ -2197,10 +2391,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Le moteur de matterEngine"
+							},
 							"sources": [
 								{
 									"fileName": "engine/gamemanager.ts",
-									"line": 21,
+									"line": 22,
 									"character": 16
 								}
 							],
@@ -2226,6 +2423,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Lance le jeu: setup + la gameloop"
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "void"
@@ -2235,7 +2435,7 @@
 							"sources": [
 								{
 									"fileName": "engine/gamemanager.ts",
-									"line": 39,
+									"line": 41,
 									"character": 10
 								}
 							]
@@ -2258,6 +2458,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Initialise les paramètres, entités, composants et system avant le lancer de la boucle"
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "void"
@@ -2267,7 +2470,7 @@
 							"sources": [
 								{
 									"fileName": "engine/gamemanager.ts",
-									"line": 68,
+									"line": 70,
 									"character": 17
 								}
 							]
@@ -2303,7 +2506,7 @@
 					"sources": [
 						{
 							"fileName": "engine/gamemanager.ts",
-							"line": 18,
+							"line": 19,
 							"character": 24
 						}
 					]
@@ -2335,10 +2538,13 @@
 						"isExported": true,
 						"isConst": true
 					},
+					"comment": {
+						"shortText": "Tableau faisant le lien entre les Component {@link C_RigidBody} et Matter.JS"
+					},
 					"sources": [
 						{
 							"fileName": "engine/gamemanager.ts",
-							"line": 15,
+							"line": 16,
 							"character": 29
 						}
 					],
@@ -2396,6 +2602,9 @@
 						"isExported": true,
 						"isAbstract": true
 					},
+					"comment": {
+						"shortText": "Définition basique d'un système"
+					},
 					"children": [
 						{
 							"id": 94,
@@ -2445,7 +2654,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 34
 								}
 							]
@@ -2458,10 +2667,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Tableau de string contenant le nom de tout les Component requis pour ce système"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 17
 								}
 							],
@@ -2494,6 +2706,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Lance le système avec tout les composants requis de l'entité"
+									},
 									"parameters": [
 										{
 											"id": 109,
@@ -2502,6 +2717,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "les components de l'entité requis pour ce système"
 											},
 											"type": {
 												"type": "reference",
@@ -2523,6 +2741,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "l'id de l'entité concerné\n"
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -2538,7 +2759,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 67,
+									"line": 77,
 									"character": 17
 								}
 							]
@@ -2559,6 +2780,9 @@
 									"kindString": "Call signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Trie les entités ayant les Componentss requis et les passe à la fonction run()"
 									},
 									"parameters": [
 										{
@@ -2611,7 +2835,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 18,
+									"line": 24,
 									"character": 16
 								}
 							]
@@ -2633,6 +2857,9 @@
 									"kindString": "Call signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Vérifie que le component ne soit pas vide/null"
 									},
 									"parameters": [
 										{
@@ -2659,7 +2886,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 62,
+									"line": 69,
 									"character": 24
 								}
 							]
@@ -2681,6 +2908,9 @@
 									"kindString": "Call signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Map les entités à un tableau avec key:value où key est le nom du component"
 									},
 									"parameters": [
 										{
@@ -2720,7 +2950,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 54,
+									"line": 60,
 									"character": 23
 								}
 							]
@@ -2755,7 +2985,7 @@
 					"sources": [
 						{
 							"fileName": "engine/systems/systemmanager.ts",
-							"line": 8,
+							"line": 14,
 							"character": 28
 						}
 					],
@@ -2785,6 +3015,9 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "S'occupe de gérer tout les systèmes"
+					},
 					"children": [
 						{
 							"id": 116,
@@ -2794,6 +3027,7 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {},
 							"signatures": [
 								{
 									"id": 117,
@@ -2803,6 +3037,7 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 118,
@@ -2811,6 +3046,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"shortText": "Un ComponentManager contenant les components de toutes les entités à traiter"
 											},
 											"type": {
 												"type": "reference",
@@ -2825,6 +3063,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"shortText": "Une liste des Entités auquel appartiennent les Components\n"
 											},
 											"type": {
 												"type": "reference",
@@ -2849,7 +3090,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 76,
+									"line": 92,
 									"character": 41
 								}
 							]
@@ -2862,10 +3103,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Un référence vers notre {@link ComponentManager} et les Components"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 74,
+									"line": 88,
 									"character": 16
 								}
 							],
@@ -2883,10 +3127,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "La liste de tout les systèmes référencés"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 73,
+									"line": 86,
 									"character": 12
 								}
 							],
@@ -2910,10 +3157,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Une référence vers toute nos entités"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 75,
+									"line": 90,
 									"character": 13
 								}
 							],
@@ -2937,10 +3187,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Un mapping entre les systèmes et leur position dans la liste"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 76,
+									"line": 92,
 									"character": 17
 								}
 							],
@@ -2967,6 +3220,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Ajoute un système au SystemManager"
+									},
 									"parameters": [
 										{
 											"id": 122,
@@ -2992,7 +3248,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 86,
+									"line": 106,
 									"character": 14
 								}
 							]
@@ -3014,6 +3270,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Lance tout les systèmes"
+									},
 									"parameters": [
 										{
 											"id": 125,
@@ -3022,6 +3281,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "l'ordre dans lequel les systèmes sont lancé, mapping par {@link SystemManager#addSystem}\n"
 											},
 											"type": {
 												"type": "reference",
@@ -3044,7 +3306,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 94,
+									"line": 117,
 									"character": 15
 								}
 							]
@@ -3080,7 +3342,7 @@
 					"sources": [
 						{
 							"fileName": "engine/systems/systemmanager.ts",
-							"line": 72,
+							"line": 84,
 							"character": 26
 						}
 					]
@@ -3093,6 +3355,9 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "Associe le nom du système à son index dans la liste SYSTEMS. Permet de changer l'ordre\ngérer par {@link SystemManager#addSystem}"
+					},
 					"indexSignature": [
 						{
 							"id": 127,
@@ -3101,6 +3366,9 @@
 							"kindString": "Index signature",
 							"flags": {
 								"isExported": true
+							},
+							"comment": {
+								"shortText": "Associe le nom du système à son index dans la liste SYSTEMS. Permet de changer l'ordre\ngérer par {@link SystemManager#addSystem}"
 							},
 							"parameters": [
 								{
@@ -3126,7 +3394,7 @@
 					"sources": [
 						{
 							"fileName": "engine/systems/systemmanager.ts",
-							"line": 108,
+							"line": 132,
 							"character": 33
 						}
 					]
@@ -3223,7 +3491,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 34
 								}
 							],
@@ -3241,10 +3509,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Tableau de string contenant le nom de tout les Component requis pour ce système"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 17
 								}
 							],
@@ -3357,6 +3628,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Trie les entités ayant les Componentss requis et les passe à la fonction run()"
+									},
 									"parameters": [
 										{
 											"id": 163,
@@ -3413,7 +3687,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 18,
+									"line": 24,
 									"character": 16
 								}
 							],
@@ -3440,6 +3714,9 @@
 									"kindString": "Call signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Map les entités à un tableau avec key:value où key est le nom du component"
 									},
 									"parameters": [
 										{
@@ -3484,7 +3761,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 54,
+									"line": 60,
 									"character": 23
 								}
 							],
@@ -3597,7 +3874,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 34
 								}
 							],
@@ -3615,10 +3892,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Tableau de string contenant le nom de tout les Component requis pour ce système"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 17
 								}
 							],
@@ -3731,6 +4011,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Trie les entités ayant les Componentss requis et les passe à la fonction run()"
+									},
 									"parameters": [
 										{
 											"id": 147,
@@ -3787,7 +4070,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 18,
+									"line": 24,
 									"character": 16
 								}
 							],
@@ -3814,6 +4097,9 @@
 									"kindString": "Call signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Map les entités à un tableau avec key:value où key est le nom du component"
 									},
 									"parameters": [
 										{
@@ -3858,7 +4144,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 54,
+									"line": 60,
 									"character": 23
 								}
 							],
@@ -3971,7 +4257,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 34
 								}
 							],
@@ -3989,10 +4275,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Tableau de string contenant le nom de tout les Component requis pour ce système"
+							},
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 11,
+									"line": 17,
 									"character": 17
 								}
 							],
@@ -4105,6 +4394,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Trie les entités ayant les Componentss requis et les passe à la fonction run()"
+									},
 									"parameters": [
 										{
 											"id": 179,
@@ -4161,7 +4453,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 18,
+									"line": 24,
 									"character": 16
 								}
 							],
@@ -4188,6 +4480,9 @@
 									"kindString": "Call signature",
 									"flags": {
 										"isExported": true
+									},
+									"comment": {
+										"shortText": "Map les entités à un tableau avec key:value où key est le nom du component"
 									},
 									"parameters": [
 										{
@@ -4232,7 +4527,7 @@
 							"sources": [
 								{
 									"fileName": "engine/systems/systemmanager.ts",
-									"line": 54,
+									"line": 60,
 									"character": 23
 								}
 							],
@@ -4321,6 +4616,9 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "Monde (World) de Space pixels, contenant toutes les entités et leur composants"
+					},
 					"children": [
 						{
 							"id": 75,
@@ -4349,7 +4647,7 @@
 							"sources": [
 								{
 									"fileName": "engine/world.ts",
-									"line": 9,
+									"line": 18,
 									"character": 40
 								}
 							]
@@ -4362,10 +4660,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Contient toutes les entités de ce monde"
+							},
 							"sources": [
 								{
 									"fileName": "engine/world.ts",
-									"line": 8,
+									"line": 16,
 									"character": 12
 								}
 							],
@@ -4389,10 +4690,13 @@
 							"flags": {
 								"isExported": true
 							},
+							"comment": {
+								"shortText": "Référence vers le Component Manager, voir {@link ComponentManager}"
+							},
 							"sources": [
 								{
 									"fileName": "engine/world.ts",
-									"line": 9,
+									"line": 18,
 									"character": 20
 								}
 							],
@@ -4419,6 +4723,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Ajoute un component à une entité et à la liste des components"
+									},
 									"parameters": [
 										{
 											"id": 85,
@@ -4427,6 +4734,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "l'entité qui recoit le Component"
 											},
 											"type": {
 												"type": "union",
@@ -4451,6 +4761,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "Le Component à ajouter\n"
+											},
 											"type": {
 												"type": "reference",
 												"id": 2,
@@ -4467,7 +4780,7 @@
 							"sources": [
 								{
 									"fileName": "engine/world.ts",
-									"line": 46,
+									"line": 62,
 									"character": 24
 								}
 							]
@@ -4489,6 +4802,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Ajoute une entité a la liste des entités et ses components à la liste des components."
+									},
 									"parameters": [
 										{
 											"id": 79,
@@ -4497,6 +4813,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "l'entité à ajouter\n"
 											},
 											"type": {
 												"type": "reference",
@@ -4514,7 +4833,7 @@
 							"sources": [
 								{
 									"fileName": "engine/world.ts",
-									"line": 18,
+									"line": 30,
 									"character": 13
 								}
 							]
@@ -4536,6 +4855,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Renvoie le component d'une entité"
+									},
 									"parameters": [
 										{
 											"id": 89,
@@ -4544,6 +4866,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "l'entité ou son id"
 											},
 											"type": {
 												"type": "union",
@@ -4568,6 +4893,9 @@
 											"flags": {
 												"isExported": true
 											},
+											"comment": {
+												"text": "le nom du component désiré\n"
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -4583,7 +4911,7 @@
 							"sources": [
 								{
 									"fileName": "engine/world.ts",
-									"line": 73,
+									"line": 88,
 									"character": 26
 								}
 							]
@@ -4605,6 +4933,9 @@
 									"flags": {
 										"isExported": true
 									},
+									"comment": {
+										"shortText": "Renvoie une entité"
+									},
 									"parameters": [
 										{
 											"id": 82,
@@ -4613,6 +4944,9 @@
 											"kindString": "Parameter",
 											"flags": {
 												"isExported": true
+											},
+											"comment": {
+												"text": "l'id de l'entité\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -4630,7 +4964,7 @@
 							"sources": [
 								{
 									"fileName": "engine/world.ts",
-									"line": 31,
+									"line": 47,
 									"character": 19
 								}
 							]
@@ -4666,7 +5000,7 @@
 					"sources": [
 						{
 							"fileName": "engine/world.ts",
-							"line": 5,
+							"line": 13,
 							"character": 20
 						}
 					]
@@ -4705,10 +5039,13 @@
 					"kind": 32,
 					"kindString": "Variable",
 					"flags": {},
+					"comment": {
+						"shortText": "Notre instance du jeu"
+					},
 					"sources": [
 						{
 							"fileName": "main.ts",
-							"line": 19,
+							"line": 27,
 							"character": 15
 						}
 					],
@@ -4728,10 +5065,13 @@
 						"isExported": true,
 						"isConst": true
 					},
+					"comment": {
+						"shortText": "Notre instance de serveur Socket IO"
+					},
 					"sources": [
 						{
 							"fileName": "main.ts",
-							"line": 12,
+							"line": 19,
 							"character": 21
 						}
 					],
@@ -4752,7 +5092,7 @@
 					"sources": [
 						{
 							"fileName": "main.ts",
-							"line": 10,
+							"line": 15,
 							"character": 9
 						}
 					],
@@ -4773,7 +5113,7 @@
 					"sources": [
 						{
 							"fileName": "main.ts",
-							"line": 11,
+							"line": 16,
 							"character": 8
 						}
 					],
@@ -4789,10 +5129,13 @@
 					"kind": 32,
 					"kindString": "Variable",
 					"flags": {},
+					"comment": {
+						"shortText": "Instance du socket manager"
+					},
 					"sources": [
 						{
 							"fileName": "main.ts",
-							"line": 21,
+							"line": 30,
 							"character": 17
 						}
 					],

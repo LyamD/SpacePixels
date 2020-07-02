@@ -1,7 +1,10 @@
 import { Component } from "./components";
-
-// Les components déclarer ici doivent aussi être aussi redéclarer dans componentsclient sans constructeur rempli (hors super();)
-
+/**
+ * Fichiers reçensant les Components coté serveur pour les components complexes
+ * La structure des components déclaré ici doit être redéclarer dans componentsclient.ts
+ * @packageDocumentation
+ * @module Components.Server
+ */
 export class C_RigidBody extends Component {
 
     weight : number;

@@ -3,18 +3,24 @@ import { Entity } from "../components/entity";
 import { SPWorld } from "../world";
 import { Component } from "../components/components";
 
+/**
+ * Fichier contenant la définition du systemsManager et la classe abstraite System
+ * @packageDocumentation
+ */
 
-//Classe de base pour tout les systèmes
+ /**
+  * Définition basique d'un système
+  */
 export abstract class System {
 
-     //Tableau de string contenant le nom de tout les Component requis pour ce système
+     /**Tableau de string contenant le nom de tout les Component requis pour ce système */
      compRequired : Array<string>;
 
      constructor(components : Array<string>) {
           this.compRequired = components;
      }
      
-     //Lance le système pour toute les entités
+     /**Trie les entités ayant les Componentss requis et les passe à la fonction run() */
      runEntities(entities : Array<Entity>, components : Array<Component>) {
           //Pour toute les entités
           entities.forEach(entity => {
@@ -50,7 +56,7 @@ export abstract class System {
           });
      }
 
-     //Map les entités à un tableau avec key:value où key est le nom du component
+     /**Map les entités à un tableau avec key:value où key est le nom du component */
      static mapEntities(entityComponents: Array<Component>) : Array<Component> {
           let arr = new Array<Component>();
           entityComponents.forEach(comp => {
@@ -59,22 +65,36 @@ export abstract class System {
           return arr;
      }
      
+     /**Vérifie que le component ne soit pas vide/null */
      private verifyComps(value : Component) : boolean {
           return (value != null);
      }
 
-     //Fonction du système à définir pour chaque système
+     /**Lance le système avec tout les composants requis de l'entité
+      * @param entityComponents les components de l'entité requis pour ce système
+      * @param entityID l'id de l'entité concerné
+      */
      abstract run(entityComponents: Array<Component>, entityID: number) : void
 
 }
 
-//Classe s'occupant de gérer les systèmes
+/**
+ * S'occupe de gérer tout les systèmes
+ */
 export class SystemManager {
+     /**La liste de tout les systèmes référencés */
      SYSTEMS : Array<System>;
+     /**Un référence vers notre {@link ComponentManager} et les Components */
      CompManager: ComponentManager;
+     /**Une référence vers toute nos entités */
      entities :  Array<Entity>;
+     /**Un mapping entre les systèmes et leur position dans la liste */
      systemsIndex : SystemsIndexForOrder;
 
+     /**
+      * @param p_CompManager Un ComponentManager contenant les components de toutes les entités à traiter 
+      * @param p_entities Une liste des Entités auquel appartiennent les Components
+      */
      constructor(p_CompManager: ComponentManager, p_entities : Array<Entity>) {
           this.SYSTEMS = Array<System>();
           this.CompManager = p_CompManager;
@@ -82,7 +102,7 @@ export class SystemManager {
           this.systemsIndex = new SystemsIndexForOrder();
      }
 
-     //Ajoute un système
+     /**Ajoute un système au SystemManager */
      addSystem(sys: System) {
           this.SYSTEMS.push(sys);
           let i = this.SYSTEMS.indexOf(sys);
@@ -90,7 +110,10 @@ export class SystemManager {
           this.systemsIndex[sys.constructor.name] = i;
      }
 
-     //Lance tout les systèmes
+     /**
+      * Lance tout les systèmes
+      * @param order l'ordre dans lequel les systèmes sont lancé, mapping par {@link SystemManager#addSystem}
+      */
      runSystems(order: Array<number>) {
           order.forEach(systemIndex => {
               let sys : System = this.SYSTEMS[systemIndex];
@@ -103,8 +126,9 @@ export class SystemManager {
   
       }
 }
-//Associe le nom du système à son index dans la liste SYSTEMS. Permet de changer l'ordre
-// A Modifier lors du changement d'implémentations de systeme
+/**Associe le nom du système à son index dans la liste SYSTEMS. Permet de changer l'ordre
+ * gérer par {@link SystemManager#addSystem}
+*/
 export class SystemsIndexForOrder{
      [key: string]: any
 }

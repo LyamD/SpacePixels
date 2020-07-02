@@ -12,22 +12,23 @@ import { C_Transform, C_Renderer, C_Engine, C_Player } from './components/compon
 import { ServerIO } from '../main';
 import { Entity } from './components/entity';
 
+/** Tableau faisant le lien entre les Component {@link C_RigidBody} et Matter.JS */
 export const MATTER_JS_BODIES = new Array<matterjs.Body>();
 
 
 export class GameManager {
 
-    //Le moteur de matterEngine
+    /**Le moteur de matterEngine */
     matterEngine: matterjs.Engine;
-    //Notre monde qui contient les entitées
+    /**Notre monde qui contient les entitées */
     SPWORLD : SPWorld;
-    //Managers
+    /**Notre {@link SystemManager} */
     SystemManager: SystemManager;
-    //Le server io
+    /**le serveur SocketIO */
     io : socketio.Server;
     
     
-
+    /**Instancie les propriétes de notre World */
     constructor() {
         //Assigner les value des managers
         this.matterEngine = matterjs.Engine.create();
@@ -36,6 +37,7 @@ export class GameManager {
         
     };
 
+    /** Lance le jeu: setup + la gameloop */
     launch() {
         //On reprend une ref des variables pour setInterval
         let matterEngine = this.matterEngine;
@@ -64,7 +66,7 @@ export class GameManager {
         }, 1000/60);
     }
 
-    //Est lancer avant de lancer la boucle serveur
+    /**Initialise les paramètres, entités, composants et system avant le lancer de la boucle */
     private setup() {
 
         let c_transform1 = new C_Transform(25,12);

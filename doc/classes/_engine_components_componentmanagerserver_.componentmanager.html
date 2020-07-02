@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>S&#39;occupe de référencer tout les components pour faciliter le travail de <a href="_engine_systems_systemmanager_.systemmanager.html">SystemManager</a></p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -117,7 +124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/components/componentmanagerserver.ts:6</li>
+									<li>Defined in engine/components/componentmanagerserver.ts:15</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_engine_components_componentmanagerserver_.componentmanager.html" class="tsd-signature-type">ComponentManager</a></h4>
@@ -133,9 +140,14 @@
 					<div class="tsd-signature tsd-kind-icon">COMPONENTS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_engine_components_components_.component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in engine/components/componentmanagerserver.ts:6</li>
+							<li>Defined in engine/components/componentmanagerserver.ts:15</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>La liste de tout les components</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -150,9 +162,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/components/componentmanagerserver.ts:12</li>
+									<li>Defined in engine/components/componentmanagerserver.ts:22</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Ajoute un Component</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -173,13 +190,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/components/componentmanagerserver.ts:16</li>
+									<li>Defined in engine/components/componentmanagerserver.ts:30</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Enlève la référence vers un component</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>comp: <a href="_engine_components_components_.component.html" class="tsd-signature-type">Component</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>le component à supprimer</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -196,16 +221,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/components/componentmanagerserver.ts:23</li>
+									<li>Defined in engine/components/componentmanagerserver.ts:42</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Instancie un objet Component à partir des données seulement</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>comp: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>les données du composant à initialiser</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_engine_components_components_.component.html" class="tsd-signature-type">Component</a></h4>
+							<p>la descendance de Component instancié</p>
 						</li>
 					</ul>
 				</section>
@@ -219,13 +253,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in engine/components/componentmanagerserver.ts:30</li>
+									<li>Defined in engine/components/componentmanagerserver.ts:53</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Instancie un Component à partir de son nom de Classe</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>le nom de classe du Component</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_engine_components_components_.component.html" class="tsd-signature-type">Component</a></h4>

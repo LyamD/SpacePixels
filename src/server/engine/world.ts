@@ -1,11 +1,20 @@
 import { Entity } from "./components/entity";
 import {ComponentManager } from "./components/componentmanagerserver";
-import { Component, C_Player, C_Transform } from "./components/components";
+import { Component } from "./components/components";
 
+/**
+ * Définition d'un World SpacePixels, faisant le lien entre toutes les entités et leur Component
+ * @packageDocumentation
+ */
+
+ /**
+  * Monde (World) de Space pixels, contenant toutes les entités et leur composants
+  */
 export class SPWorld {
 
-    // Array contenant toutes les entités
+    /**Contient toutes les entités de ce monde */
     ENTITIES : Array<Entity>;
+    /**Référence vers le Component Manager, voir {@link ComponentManager} */
     componentManager : ComponentManager;
     
 
@@ -14,7 +23,10 @@ export class SPWorld {
         this.componentManager = new ComponentManager();
     }
 
-    //Ajoute une entité a la liste des entités et ses components à la liste des components.
+    /**
+     * Ajoute une entité a la liste des entités et ses components à la liste des components.
+     * @param entity l'entité à ajouter
+     */
     addEntity(entity : Entity) {
         
         if (entity.components == null) {
@@ -28,6 +40,10 @@ export class SPWorld {
         this.ENTITIES.push(entity);
     };
 
+    /**
+     * Renvoie une entité
+     * @param p_id l'id de l'entité
+     */
     getEntityFromID(p_id : number) : Entity {
         let entity = null;
         this.ENTITIES.forEach(ent => {
@@ -38,11 +54,11 @@ export class SPWorld {
         return entity;
     }
 
-    /* Ajoute un component à une entité
-    *   @param ent: Entity l'entité qui recoit le component ou l'id de l'entité
-    *   @param comp : Component le component qui est ajouté
-    *   @param compManager : ComponentManager requis pour ajouter le component à la liste des components
-    */
+    /**
+     * Ajoute un component à une entité et à la liste des components
+     * @param p_entity l'entité qui recoit le Component
+     * @param p_component Le Component à ajouter
+     */
     addComponentToEntity(p_entity: Entity | number, p_component: Component) {
         //Si c'est l'id qui est passé
         var entity : Entity;
@@ -64,12 +80,11 @@ export class SPWorld {
         
     // }
 
-    /* Permet de récuperer la réf d'un composant d'une entité spécifique
-    *   @param ent : Entity ou son ID
-    *   @param comp : Component on son nom
-    * 
-    *   @return : Component ou null si le component n'est pas présent.
-    */
+    /**
+     * Renvoie le component d'une entité
+     * @param p_entity l'entité ou son id
+     * @param p_component le nom du component désiré
+     */
     getComponentFromEntity(p_entity: Entity | number, p_component: string) {
         let component = null;
         let entity;

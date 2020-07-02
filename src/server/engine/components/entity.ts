@@ -1,7 +1,9 @@
 import { Component } from "./components";
 
 
-
+/**
+ * Une entité, base de tout le système
+ */
 export class Entity {
     id : number;
     components? : Array<Component>;

@@ -3,14 +3,28 @@ import { ServerIO } from "./main";
 import { Entity } from "./engine/components/entity";
 import { C_Transform, C_Renderer, C_Player } from "./engine/components/components";
 
+/**
+ * Réceptionne les données envoyée par les clients et les transmet au jeu
+ */
+
 export class GameSocketManager {
 
+    /**
+     * Référence vers le jeu 
+     * Voir {@link GameManager}
+     * 
+     */
     game : GameManager;
 
+    /** @param p_game une réf vers le GameManager */
     constructor(p_game : GameManager) {
         this.game = p_game;
     }
 
+    /**
+     * Créer et ajoute une nouvelle entité Joueur
+     * @param socket le socket du client auquel on veut créer une entité
+     */
     newPlayer(socket: SocketIO.EngineSocket) {
 
         let c_transform = new C_Transform(50,50);
@@ -26,6 +40,11 @@ export class GameSocketManager {
         
     }
 
+    /**
+     * Ajoute tout les event de reception socket.io pour ce socket joueur
+     * @param socket le socket du client auquel on veut créer une entité
+     * @event SocketIO
+     */
     private newPlayerSocket(socket: SocketIO.EngineSocket) {
         console.log('player connected : ' + socket.id);
 
@@ -37,6 +56,11 @@ export class GameSocketManager {
         });
     }
 
+    /**
+     * Ajoute les event socket IO en rapport avec les inputs joueurs
+     * @param socket le socket du joueur
+     * @param playerEntity l'entité lié au socket du joueur;
+     */
     private socketInput(socket : SocketIO.EngineSocket, playerEntity : Entity) {
 
         let inputs = this.game.SPWORLD.getComponentFromEntity(playerEntity, "C_Player"); 

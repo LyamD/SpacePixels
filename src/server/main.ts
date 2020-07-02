@@ -6,9 +6,16 @@ import * as path from 'path';
 import * as game from './engine/gamemanager';
 import { GameSocketManager } from './GameSocketManager';
 
+/**
+ * Fichier primaire, base du jeu. Fait principalement le lien entre Socket.io et le jeu
+ * @packageDocumentation
+ */
+
 //Création serveur express/node
 const app = express();
 let http = require('http').createServer(app);
+
+/** Notre instance de serveur Socket IO */
 export const ServerIO = require('socket.io')(http);
 //Changement path coté client
 app.use(express.static(path.join(__dirname + '/../client/')));//middleware
@@ -16,8 +23,10 @@ app.use(express.static(path.join(__dirname + '/../client/')));//middleware
 
 
 //On créer un gameManager et on lance le jeu
+/** Notre instance du jeu */
 var GameManager = new game.GameManager();
 GameManager.launch();
+/** Instance du socket manager */
 var socketManager = new GameSocketManager(GameManager);
 
 //Envoie page client
