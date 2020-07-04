@@ -2,6 +2,7 @@ import { GameManager } from "./engine/gamemanager"
 import { ServerIO } from "./main";
 import { Entity } from "./engine/components/entity";
 import { C_Transform, C_Renderer, C_Player } from "./engine/components/components";
+import { C_RigidBody } from "./engine/components/componentsserver";
 
 /**
  * Réceptionne les données envoyée par les clients et les transmet au jeu
@@ -30,8 +31,9 @@ export class GameSocketManager {
         let c_transform = new C_Transform(50,50);
         let c_renderer = new C_Renderer("styled");
         let c_player = new C_Player(socket.id);
+        let c_rigidbody = new C_RigidBody(1,50,50);
 
-        let playerEntity = new Entity([c_transform, c_renderer, c_player]);
+        let playerEntity = new Entity([c_transform, c_renderer, c_player, c_rigidbody]);
         
         this.game.SPWORLD.addEntity(playerEntity);
 

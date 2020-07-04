@@ -7,10 +7,11 @@ import * as socketio from 'socket.io';
 import { SystemManager} from "./systems/systemmanager";
 import { SPWorld } from "./world";
 import { ComponentManager} from './components/componentmanagerserver';
-import { S_Propulsion, S_PlayerInputs } from './systems/systems';
-import { C_Transform, C_Renderer, C_Engine, C_Player } from './components/components';
+import { S_Propulsion, S_PlayerInputs, S_RigidBody } from './systems/systems';
+import { C_Transform, C_Renderer, C_Engine } from './components/components';
 import { ServerIO } from '../main';
 import { Entity } from './components/entity';
+import { C_RigidBody } from './components/componentsserver';
 
 /** Tableau faisant le lien entre les Component {@link C_RigidBody} et Matter.JS */
 export const MATTER_JS_BODIES = new Array<matterjs.Body>();
@@ -18,20 +19,20 @@ export const MATTER_JS_BODIES = new Array<matterjs.Body>();
 
 export class GameManager {
 
-    /**Le moteur de matterEngine */
-    matterEngine: matterjs.Engine;
     /**Notre monde qui contient les entitées */
     SPWORLD : SPWorld;
     /**Notre {@link SystemManager} */
     SystemManager: SystemManager;
     /**le serveur SocketIO */
     io : socketio.Server;
+
+    /**Le moteur de matterEngine */
+    static matterEngine = matterjs.Engine.create();
     
     
     /**Instancie les propriétes de notre World */
     constructor() {
         //Assigner les value des managers
-        this.matterEngine = matterjs.Engine.create();
         this.SPWORLD = new SPWorld();
         this.SystemManager = new SystemManager(this.SPWORLD.componentManager, this.SPWORLD.ENTITIES);
         
@@ -40,7 +41,6 @@ export class GameManager {
     /** Lance le jeu: setup + la gameloop */
     launch() {
         //On reprend une ref des variables pour setInterval
-        let matterEngine = this.matterEngine;
         let SystemManager = this.SystemManager;
         let SPWorld = this.SPWORLD;
 
@@ -51,16 +51,14 @@ export class GameManager {
         setInterval(function() {
 
             //Loop de MatterJS
-            Engine.update(matterEngine, 1000/60);
+            Engine.update(GameManager.matterEngine, 1000/60);
 
             //On appel le système manager à lancer les systèmes
             //En paramètre un Array composé de systemsIndex pour l'ordre de lancement
-            SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion, SystemManager.systemsIndex.S_PlayerInputs]);
+            SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion, SystemManager.systemsIndex.S_PlayerInputs, SystemManager.systemsIndex.S_RigidBody]);
 
             //On envoie toute les entités a tout les clients
             ServerIO.emit('state', SPWorld.ENTITIES);
-
-            console.log('matter js bodies' + matterEngine.world.bodies);
            
             
         }, 1000/60);
@@ -75,7 +73,7 @@ export class GameManager {
         let c_renderer2 = new C_Renderer("styled");
         let c_engine1 = new C_Engine(2);
         
-        //let testRigibody = new C_RigidBody(this.matterEngine);
+        let testRigibody = new C_RigidBody();
 
         let entity1 = new Entity([c_transform1, c_renderer1, c_engine1]);
         let entity2 = new Entity([c_transform2, c_renderer2]);
@@ -88,13 +86,18 @@ export class GameManager {
         );
 
         this.SystemManager.addSystem(
-            new S_PlayerInputs(['C_Player', 'C_Transform'])
+            new S_PlayerInputs(['C_Player', 'C_Transform', 'C_RigidBody'])
         );
+
+        this.SystemManager.addSystem(
+            new S_RigidBody(['C_Transform', 'C_RigidBody'])
+        );
+
 
         //MatterJs setup
 
         //On enlève la gravité
-        this.matterEngine.world.gravity.y = 1;
+        GameManager.matterEngine.world.gravity.y = 0;
 
 
         

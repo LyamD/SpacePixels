@@ -15,7 +15,7 @@ import { GameSocketManager } from './GameSocketManager';
 const app = express();
 let http = require('http').createServer(app);
 
-/** Notre instance de serveur Socket IO */
+/** Notre instance de serveur Socket IO, accessible dans tout le code */
 export const ServerIO = require('socket.io')(http);
 //Changement path coté client
 app.use(express.static(path.join(__dirname + '/../client/')));//middleware

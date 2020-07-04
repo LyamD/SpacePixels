@@ -95,9 +95,7 @@ export class SPWorld {
         }
 
         entity.components.forEach(c => {
-                console.log('foreach comp : ' + c.name);
                 if (c.name == p_component) {
-                    console.log('trouvay');
                     component = c;
                 }
             
