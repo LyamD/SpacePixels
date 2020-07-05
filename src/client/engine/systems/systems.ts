@@ -3,21 +3,19 @@ import { C_Transform, C_Renderer } from "../components/components";
 import { RenderedEntities } from "../../game";
 import { Graphics } from "pixi.js";
 import { Component } from "../components/components";
+import { pixiApp } from "../..";
 
 export class S_Render extends System {
 
-    pixiApp: any;
 
-    constructor(components : Array<string>, pixiApp: any) {
+    constructor(components : Array<string>) {
         super(components);
-        this.pixiApp = pixiApp;
     }
 
     run(entityComponents : Array<Component>, entityID : number) {
         let Components = this.mapEntities(entityComponents);
         let transform : C_Transform = Components['C_Transform'];
         let renderer : C_Renderer = Components['C_Renderer'];
-        let pixiApp = this.pixiApp;
 
         isPixiRendererCreated(entityID);
 

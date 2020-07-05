@@ -1,6 +1,8 @@
 import { Entity } from "./components/entity";
 import { ComponentManager } from "./components/componentmanagerclient";
 import { Component } from "./components/components";
+import { pixiApp } from "..";
+import { RenderedEntities } from "../game";
 
 export class EntitiesManager {
 
@@ -100,6 +102,7 @@ export class EntitiesManager {
 
         entity.components.forEach(comp => {
             if (comp.name == "C_Renderer") {
+                pixiApp.stage.removeChild(RenderedEntities[entity.id]);
             }
         });
 

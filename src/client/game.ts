@@ -1,10 +1,9 @@
-import * as PIXI from "pixi.js";
 import {Entity} from "./engine/components/entity";
 import { EntitiesManager } from "./engine/entitiesmanager";
 import { SystemManager } from "./engine/systems/systemmanagerclient";
 import { S_Render } from "./engine/systems/systems";
 import { setupSocketManager } from "./socketmanager";
-import { PlayerSocket } from ".";
+import { PlayerSocket, pixiApp } from ".";
 import { Component } from "./engine/components/components";
 
 export const RenderedEntities = Array<any>();
@@ -13,15 +12,13 @@ export class Game {
 
     ENTITIES : Array<Entity>;
     COMPONENTS : Array<Component>;
-    pixiApp : any;
 
     EntitiesManager : EntitiesManager;
     SystemManager : SystemManager;
 
-    constructor(pixiApp: any) {
+    constructor() {
         this.ENTITIES = new Array<Entity>();
         this.COMPONENTS = new Array<Component>();
-        this.pixiApp = pixiApp;
 
         this.EntitiesManager = new EntitiesManager(this.ENTITIES, this.COMPONENTS);
         this.SystemManager = new SystemManager(this.COMPONENTS);
@@ -40,7 +37,7 @@ export class Game {
     //est lancé avant notre boucle de jeu
     gameSetup() {
         this.SystemManager.addSystem(
-            new S_Render(['C_Transform', 'C_Renderer'], this.pixiApp)
+            new S_Render(['C_Transform', 'C_Renderer'])
         );
     }
 

@@ -6,13 +6,13 @@ import { Game } from './game';
 export const PlayerSocket = io();
 
 //Création de l'appli PIXI
-var pixi = new PIXI.Application({
+export const pixiApp = new PIXI.Application({
   antialias: true,
   resolution: 1
 });
 
 //Création de l'instance de jeu
-var game = new Game(pixi);
+var game = new Game();
 
 $(function () {
 
