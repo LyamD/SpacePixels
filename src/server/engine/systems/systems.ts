@@ -26,10 +26,10 @@ export class S_PlayerInputs extends System {
 
         
         if (player.inputs.MoveUp) {
-            Body.applyForce( matterBody, {x: matterBody.position.x , y: matterBody.position.y}, {x: 0, y: 0.02});
+            Body.applyForce( matterBody, {x: matterBody.position.x , y: matterBody.position.y}, {x: 0, y: -0.02});
         }
         if (player.inputs.MoveDown) {
-            Body.applyForce( matterBody, {x: matterBody.position.x , y: matterBody.position.y}, {x: 0, y: -0.02});
+            Body.applyForce( matterBody, {x: matterBody.position.x , y: matterBody.position.y}, {x: 0, y: 0.02});
         }
         if (player.inputs.MoveDroite) {
             Body.applyForce( matterBody, {x: matterBody.position.x , y: matterBody.position.y}, {x: 0.02, y: 0});
@@ -54,5 +54,7 @@ export class S_RigidBody extends System {
         transform.y = matterBody.position.y;
 
         transform.rotation = matterBody.angle;
+
+        //console.log('entity id : ' + entityID + ' ,position x: ' + transform.x + ' , y: ' + transform.y + ' , rotation : ' + transform.rotation);
     }
 }

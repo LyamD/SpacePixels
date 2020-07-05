@@ -18,7 +18,6 @@ export class S_Render extends System {
         let transform : C_Transform = Components['C_Transform'];
         let renderer : C_Renderer = Components['C_Renderer'];
         let pixiApp = this.pixiApp;
-        //console.log('entity rendered at :' + transform.x + ' ; ' + transform.y + ' with value : ' + renderer.style);
 
         isPixiRendererCreated(entityID);
 
@@ -54,6 +53,14 @@ export class S_Render extends System {
                     g.drawRect(0, 0, 64, 64);
                     g.endFill();
                     return g;
+
+                case 'player':
+                    let g1 = new Graphics();
+                    g1.lineStyle(4, 0x000000, 1);
+                    g1.beginFill(0xBC8822);
+                    g1.drawRect(0, 0, 64, 64);
+                    g1.endFill();
+                    return g1;
             
                 default: 
                     let gNoStyle = new Graphics();

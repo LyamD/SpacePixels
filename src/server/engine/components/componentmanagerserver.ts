@@ -1,5 +1,7 @@
 import { Component, C_Transform, C_Player, C_Renderer, C_Engine } from "./components";
 import { C_RigidBody } from "./componentsserver";
+import { MATTER_JS_BODIES, GameManager } from "../gamemanager";
+import { World } from "matter-js";
 
 /**
  * Contient le ComponentManager
@@ -29,6 +31,10 @@ export class ComponentManager {
      */
     removeComponent(comp: Component) {
         let i = this.COMPONENTS.indexOf(comp);
+
+        if (comp.name == "C_RigidBody") {
+            this.removeRigidbody(comp)
+        }
         if (i > -1) {
             this.COMPONENTS.splice(i, 1);
         }
@@ -71,6 +77,12 @@ export class ComponentManager {
             default: return null;
                 break;
         }
+    }
+
+    removeRigidbody(comp : any) {
+        let matterBody = MATTER_JS_BODIES[comp.BodyID];
+        World.remove(GameManager.matterEngine.world, matterBody);
+        MATTER_JS_BODIES.splice(comp.BodyID, 1);
     }
 
 }

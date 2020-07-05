@@ -97,8 +97,13 @@ export class EntitiesManager {
     //Enlève une entité
     private removeEntity(entity : Entity) {
         let index = this.entities.indexOf(entity);
-        this.entities.slice(index,index);
 
+        entity.components.forEach(comp => {
+            if (comp.name == "C_Renderer") {
+            }
+        });
+
+        this.entities.splice(index,1);
         console.log('-- Entité removed');
     }
     

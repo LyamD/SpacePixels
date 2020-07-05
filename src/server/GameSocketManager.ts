@@ -29,7 +29,7 @@ export class GameSocketManager {
     newPlayer(socket: SocketIO.EngineSocket) {
 
         let c_transform = new C_Transform(50,50);
-        let c_renderer = new C_Renderer("styled");
+        let c_renderer = new C_Renderer("player");
         let c_player = new C_Player(socket.id);
         let c_rigidbody = new C_RigidBody(1,50,50);
 
@@ -37,7 +37,7 @@ export class GameSocketManager {
         
         this.game.SPWORLD.addEntity(playerEntity);
 
-        this.newPlayerSocket(socket);
+        this.newPlayerSocket(socket, playerEntity);
         this.socketInput(socket, playerEntity);
         
     }
@@ -47,13 +47,13 @@ export class GameSocketManager {
      * @param socket le socket du client auquel on veut créer une entité
      * @event SocketIO
      */
-    private newPlayerSocket(socket: SocketIO.EngineSocket) {
+    private newPlayerSocket(socket: SocketIO.EngineSocket, playerEntity : Entity) {
         console.log('player connected : ' + socket.id);
 
         socket.on('disconnect', () => {
 
             console.log('user disconnected : ' + socket.id);
-            //delete PLAYERS[socket.id];
+            this.game.SPWORLD.removeEntity(playerEntity);
             ServerIO.emit('disconnect', socket.id);
         });
     }

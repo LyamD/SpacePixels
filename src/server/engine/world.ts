@@ -61,24 +61,11 @@ export class SPWorld {
      */
     addComponentToEntity(p_entity: Entity | number, p_component: Component) {
         //Si c'est l'id qui est passé
-        var entity : Entity;
-        if (typeof p_entity === "number") {
-            entity = this.getEntityFromID(p_entity);
-        } else {
-            entity = p_entity;
-        }
+        let entity = this.isEntityID(p_entity);
 
         entity.components.push(p_component);
         this.componentManager.COMPONENTS.push(p_component);
     }
-
-    // newPlayer(socket : SocketIO.EngineSocket) {
-    //     let player = this.addEntity();
-    //     let playerComp = new C_Player(socket.id);
-    //     let transformComp = new C_Transform(50,50);
-
-        
-    // }
 
     /**
      * Renvoie le component d'une entité
@@ -87,12 +74,7 @@ export class SPWorld {
      */
     getComponentFromEntity(p_entity: Entity | number, p_component: string) {
         let component = null;
-        let entity;
-        if (typeof p_entity === "number") {
-            entity = this.getEntityFromID(p_entity);
-        } else {
-            entity = p_entity;
-        }
+        let entity = this.isEntityID(p_entity);
 
         entity.components.forEach(c => {
                 if (c.name == p_component) {
@@ -101,5 +83,51 @@ export class SPWorld {
             
         });
         return component;
+    }
+
+    /**
+     * Supprime une entité et toute ses références
+     * @param p_entity l'entité ou son id 
+     */
+    removeEntity(p_entity : Entity | number) {
+        let entity = this.isEntityID(p_entity);
+
+        entity.components.forEach(comp => {
+            this.removeComponentFromEntity(entity, comp.name);
+        });
+
+        let i = this.ENTITIES.indexOf(entity)
+        if (i > -1) {
+            this.ENTITIES.splice(i, 1);
+        }
+
+    }
+
+    /**
+     * Enlève un Component d'une entité et le supprime complètement
+     */
+    removeComponentFromEntity(p_entity : Entity | number, p_comp : string) {
+        let entity = this.isEntityID(p_entity);
+        let comp = this.getComponentFromEntity(entity, p_comp);
+
+        let i = entity.components.indexOf(comp);
+        if (i > -1) {
+            entity.components.splice(i, 1);
+        }
+
+        this.componentManager.removeComponent(comp);
+    }
+
+    /**
+     * Retourne forcément une entité même si l'id est passé
+     */
+    private isEntityID(p_entity : Entity | number) : Entity {
+        let entity;
+        if (typeof p_entity === "number") {
+            entity = this.getEntityFromID(p_entity);
+        } else {
+            entity = p_entity;
+        }
+        return entity
     }
 }
