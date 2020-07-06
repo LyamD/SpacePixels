@@ -11,7 +11,6 @@ import { S_Propulsion, S_PlayerInputs, S_RigidBody } from './systems/systems';
 import { C_Transform, C_Renderer, C_Engine } from './components/components';
 import { ServerIO } from '../main';
 import { Entity } from './components/entity';
-import { C_RigidBody } from './components/componentsserver';
 
 /** Tableau faisant le lien entre les Component {@link C_RigidBody} et Matter.JS */
 export var MATTER_JS_BODIES = new Array<matterjs.Body>();
@@ -75,8 +74,6 @@ export class GameManager {
         let c_renderer1 = new C_Renderer("styled");
         let c_renderer2 = new C_Renderer("styled");
         let c_engine1 = new C_Engine(2);
-        
-        let testRigibody = new C_RigidBody();
 
         let entity1 = new Entity([c_transform1, c_renderer1, c_engine1]);
         let entity2 = new Entity([c_transform2, c_renderer2]);

@@ -11,17 +11,15 @@ export const RenderedEntities = Array<any>();
 export class Game {
 
     ENTITIES : Array<Entity>;
-    COMPONENTS : Array<Component>;
 
     EntitiesManager : EntitiesManager;
     SystemManager : SystemManager;
 
     constructor() {
         this.ENTITIES = new Array<Entity>();
-        this.COMPONENTS = new Array<Component>();
 
-        this.EntitiesManager = new EntitiesManager(this.ENTITIES, this.COMPONENTS);
-        this.SystemManager = new SystemManager(this.COMPONENTS);
+        this.EntitiesManager = new EntitiesManager(this.ENTITIES);
+        this.SystemManager = new SystemManager();
 
         this.setupSocket();
         this.gameSetup();

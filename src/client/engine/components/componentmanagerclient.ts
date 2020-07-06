@@ -1,24 +1,8 @@
 import { Component, C_Transform, C_Player, C_Renderer, C_Engine } from "./components";
 import { C_RigidBody } from "./componentsclient";
 
-export class ComponentManager {
+export class ComponentManager { 
 
-    COMPONENTS: Array<Component>
-
-    constructor() {
-        this.COMPONENTS = Array<Component>();
-    }
-
-    addComponents(comp: Component) {
-        this.COMPONENTS.push(comp);
-    }
-
-    removeComponent(comp: Component) {
-        let i = this.COMPONENTS.indexOf(comp);
-        if (i > -1) {
-            this.COMPONENTS.splice(i, 1);
-        }
-    }
 
     static createCompFromObject(comp: any) : Component{
 

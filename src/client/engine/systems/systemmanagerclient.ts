@@ -12,7 +12,7 @@ export abstract class System {
           this.compRequired = components;
      }
      
-     runEntities(entities : Array<Entity>, components : Array<Component>) {
+     runEntities(entities : Array<Entity>) {
           //Pour toute les entités
           entities.forEach(entity => {
                //console.log(' --------- System : ' + this.constructor.name + ' , Entity : ' + entity.id);
@@ -73,12 +73,10 @@ export abstract class System {
 //Classe s'occupant de gérer les systèmes
 export class SystemManager {
      SYSTEMS : Array<System>;
-     COMPONENTS: Array<Component>;
      systemsIndex : SystemsIndexForOrder;
 
-     constructor(components: Array<Component>) {
+     constructor() {
           this.SYSTEMS = Array<System>();
-          this.COMPONENTS = components;
           this.systemsIndex = new SystemsIndexForOrder();
      }
 
@@ -94,7 +92,7 @@ export class SystemManager {
      runSystems(order: Array<number>, entities : Array<Entity>) {
           order.forEach(systemIndex => {
                let sys : System = this.SYSTEMS[systemIndex];
-               sys.runEntities(entities, this.COMPONENTS);
+               sys.runEntities(entities);
           });
   
       }

@@ -7,11 +7,9 @@ import { RenderedEntities } from "../game";
 export class EntitiesManager {
 
     entities : Array<Entity>;
-    components : Array<Component>;
 
-    constructor(entities : Array<Entity>, components : Array<Component>) {
+    constructor(entities : Array<Entity>) {
         this.entities = entities;
-        this.components = components;
     }
 
     //Update une entity de notre tableau à partir d'un objet
@@ -66,7 +64,6 @@ export class EntitiesManager {
     //Ajoute un composant à une entité
     addComponentToEntity(ent: Entity, comp: Component) {
         ent.components.push(comp);
-        this.components.push(comp);
     }
 
     //Trouve une entité par son id
