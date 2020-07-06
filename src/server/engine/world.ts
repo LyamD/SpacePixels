@@ -16,25 +16,24 @@ export class SPWorld {
     ENTITIES : Array<Entity>;
     /**Référence vers le Component Manager, voir {@link ComponentManager} */
     componentManager : ComponentManager;
+    /** Tableau contenant les id des entités à détruire */
+    ENTITYTODESTROY : Array<number>;
     
 
     constructor() {
         this.ENTITIES = Array<Entity>();
         this.componentManager = new ComponentManager();
+        this.ENTITYTODESTROY = new Array<number>();
     }
 
     /**
-     * Ajoute une entité a la liste des entités et ses components à la liste des components.
+     * Ajoute une entité a la liste des entités
      * @param entity l'entité à ajouter
      */
     addEntity(entity : Entity) {
         
         if (entity.components == null) {
             entity.components = new Array<Component>();
-        } else {
-            entity.components.forEach(component => {
-                this.componentManager.COMPONENTS.push(component);
-            })
         }
         //ajoute l'entité a l'Array
         this.ENTITIES.push(entity);
@@ -64,7 +63,6 @@ export class SPWorld {
         let entity = this.isEntityID(p_entity);
 
         entity.components.push(p_component);
-        this.componentManager.COMPONENTS.push(p_component);
     }
 
     /**
@@ -85,37 +83,50 @@ export class SPWorld {
         return component;
     }
 
-    /**
-     * Supprime une entité et toute ses références
-     * @param p_entity l'entité ou son id 
-     */
-    removeEntity(p_entity : Entity | number) {
-        let entity = this.isEntityID(p_entity);
+    /**Ajoute une entité à la liste des entités à détruire */
+    addEntityToGarbage(entityID : number) {
+        this.ENTITYTODESTROY.push(entityID);
+    }
 
-        entity.components.forEach(comp => {
-            this.removeComponentFromEntity(entity, comp.name);
-        });
+    /**Supprime toute les entités qui doivent l'être */
+    cleanEntity() {
 
-        let i = this.ENTITIES.indexOf(entity)
-        if (i > -1) {
-            this.ENTITIES.splice(i, 1);
-        }
+        this.ENTITYTODESTROY.forEach(entityid => {
 
+            let entity = this.isEntityID(entityid);
+
+            for (let i = entity.components.length-1; i >= 0; i--) {
+                let comp = entity.components[i];
+                console.log("removeComp : " + comp.name);
+                this.removeComponentFromEntity(entity, comp.name);
+            }
+
+            let i = this.ENTITIES.indexOf(entity)
+            if (i > -1) {
+                this.ENTITIES.splice(i, 1);
+            }
+        })
+
+        this.ENTITYTODESTROY = [];
     }
 
     /**
-     * Enlève un Component d'une entité et le supprime complètement
+     * Enlève un Component d'une entité
      */
     removeComponentFromEntity(p_entity : Entity | number, p_comp : string) {
         let entity = this.isEntityID(p_entity);
         let comp = this.getComponentFromEntity(entity, p_comp);
 
+        if (comp.name == "C_RigidBody") {
+            this.componentManager.removeRigidbody(comp);
+        }
+
         let i = entity.components.indexOf(comp);
         if (i > -1) {
+            console.log("component spliced from entity");
             entity.components.splice(i, 1);
         }
 
-        this.componentManager.removeComponent(comp);
     }
 
     /**

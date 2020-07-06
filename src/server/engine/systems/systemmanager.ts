@@ -1,6 +1,5 @@
 import { ComponentManager } from "../components/componentmanagerserver";
 import { Entity } from "../components/entity";
-import { SPWorld } from "../world";
 import { Component } from "../components/components";
 
 /**
@@ -21,7 +20,7 @@ export abstract class System {
      }
      
      /**Trie les entités ayant les Componentss requis et les passe à la fonction run() */
-     runEntities(entities : Array<Entity>, components : Array<Component>) {
+     runEntities(entities : Array<Entity>) {
           //Pour toute les entités
           entities.forEach(entity => {
                //console.log(' --------- System : ' + this.constructor.name + ' , Entity : ' + entity.id);
@@ -84,8 +83,6 @@ export abstract class System {
 export class SystemManager {
      /**La liste de tout les systèmes référencés */
      SYSTEMS : Array<System>;
-     /**Un référence vers notre {@link ComponentManager} et les Components */
-     CompManager: ComponentManager;
      /**Une référence vers toute nos entités */
      entities :  Array<Entity>;
      /**Un mapping entre les systèmes et leur position dans la liste */
@@ -95,9 +92,8 @@ export class SystemManager {
       * @param p_CompManager Un ComponentManager contenant les components de toutes les entités à traiter 
       * @param p_entities Une liste des Entités auquel appartiennent les Components
       */
-     constructor(p_CompManager: ComponentManager, p_entities : Array<Entity>) {
+     constructor(p_entities : Array<Entity>) {
           this.SYSTEMS = Array<System>();
-          this.CompManager = p_CompManager;
           this.entities = p_entities;
           this.systemsIndex = new SystemsIndexForOrder();
      }
@@ -120,7 +116,7 @@ export class SystemManager {
               if (sys == null) {
                    console.log('error, unexistant system called');
               } else {
-              sys.runEntities(this.entities, this.CompManager.COMPONENTS);
+              sys.runEntities(this.entities);
               }
           });
   

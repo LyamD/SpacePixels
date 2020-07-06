@@ -13,32 +13,6 @@ import { World } from "matter-js";
  */
 export class ComponentManager {
 
-    /**La liste de tout les components */
-    COMPONENTS: Array<Component>
-
-    constructor() {
-        this.COMPONENTS = Array<Component>();
-    }
-
-    /**Ajoute un Component */
-    addComponents(comp: Component) {
-        this.COMPONENTS.push(comp);
-    }
-
-    /**
-     * Enlève la référence vers un component
-     * @param comp le component à supprimer
-     */
-    removeComponent(comp: Component) {
-        let i = this.COMPONENTS.indexOf(comp);
-
-        if (comp.name == "C_RigidBody") {
-            this.removeRigidbody(comp)
-        }
-        if (i > -1) {
-            this.COMPONENTS.splice(i, 1);
-        }
-    }
 
     /**
      * Instancie un objet Component à partir des données seulement
@@ -79,10 +53,11 @@ export class ComponentManager {
         }
     }
 
-    removeRigidbody(comp : any) {
+    /**Supprime le rigidbody lié à un component dans MatterJS */
+    removeRigidbody(comp : C_RigidBody) {
         let matterBody = MATTER_JS_BODIES[comp.BodyID];
         World.remove(GameManager.matterEngine.world, matterBody);
-        MATTER_JS_BODIES.splice(comp.BodyID, 1);
+        MATTER_JS_BODIES[comp.BodyID] = null;
     }
 
 }

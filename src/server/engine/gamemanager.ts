@@ -14,7 +14,7 @@ import { Entity } from './components/entity';
 import { C_RigidBody } from './components/componentsserver';
 
 /** Tableau faisant le lien entre les Component {@link C_RigidBody} et Matter.JS */
-export const MATTER_JS_BODIES = new Array<matterjs.Body>();
+export var MATTER_JS_BODIES = new Array<matterjs.Body>();
 
 
 export class GameManager {
@@ -34,7 +34,7 @@ export class GameManager {
     constructor() {
         //Assigner les value des managers
         this.SPWORLD = new SPWorld();
-        this.SystemManager = new SystemManager(this.SPWORLD.componentManager, this.SPWORLD.ENTITIES);
+        this.SystemManager = new SystemManager(this.SPWORLD.ENTITIES);
         
     };
 
@@ -56,6 +56,9 @@ export class GameManager {
             //On appel le système manager à lancer les systèmes
             //En paramètre un Array composé de systemsIndex pour l'ordre de lancement
             SystemManager.runSystems([SystemManager.systemsIndex.S_Propulsion, SystemManager.systemsIndex.S_PlayerInputs, SystemManager.systemsIndex.S_RigidBody]);
+
+            //On demande au World de delete toutes les entités devant l'être avant l'envoie au client
+            SPWorld.cleanEntity();
 
             //On envoie toute les entités a tout les clients
             ServerIO.emit('state', SPWorld.ENTITIES);

@@ -53,7 +53,7 @@ export class GameSocketManager {
         socket.on('disconnect', () => {
 
             console.log('user disconnected : ' + socket.id);
-            this.game.SPWORLD.removeEntity(playerEntity);
+            this.game.SPWORLD.addEntityToGarbage(playerEntity.id);
             ServerIO.emit('disconnect', socket.id);
         });
     }
@@ -66,11 +66,9 @@ export class GameSocketManager {
     private socketInput(socket : SocketIO.EngineSocket, playerEntity : Entity) {
 
         let inputs = this.game.SPWORLD.getComponentFromEntity(playerEntity, "C_Player"); 
-        //console.log(JSON.stringify(inputs));
 
         socket.on('PlayerInput', (data : any) => {
 
-            //console.log('player : ' + playerEntity.id + ' , socket : ' + socket.id + ' ,inputs : ' + JSON.stringify(data));
             inputs.inputs[data.action] = data.state;
 
           });
